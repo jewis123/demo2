@@ -21,10 +21,6 @@ namespace Battle.States
             fsm.target.agent.speed = fsm.target.data.speed;
             fsm.target.animator.CrossFade("running",0,0);
             base.EnterState();
-            if (fsm.target.name.StartsWith("character2"))
-            {
-                Debug.Log("FollowState");
-            }
         }
         
         public override void ExitState()

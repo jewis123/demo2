@@ -12,6 +12,7 @@ namespace Battle.States
 		{
 			base.EnterState();
 			fsm.target.agent.speed = fsm.target.data.speed / 2;
+			fsm.target.animator.CrossFade("walking",0,0);
 		}
 
 		public override void ExitState()

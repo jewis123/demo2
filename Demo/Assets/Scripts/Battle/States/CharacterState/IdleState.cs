@@ -16,10 +16,6 @@ namespace Battle.States
             rangeTime = enterTm + Random.Range(fsm.target.WanderTime.x * 100,fsm.target.WanderTime.y * 100)/100;
             fsm.target.animator.CrossFade("idle",0.5f,0);
             fsm.target.hud.SetHUDVisible(true);
-            if (fsm.target.name.StartsWith("character2"))
-            {
-                Debug.Log("IdleState");
-            }
             base.EnterState();
         }
 
