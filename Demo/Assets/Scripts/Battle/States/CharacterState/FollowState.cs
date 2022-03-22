@@ -19,7 +19,7 @@ namespace Battle.States
             character.IsIdle = true;
             // character.animator.SetFloat(SpeedHash,fsm.target.battle.battleSpeed);
             fsm.target.agent.speed = fsm.target.data.speed;
-            fsm.target.animator.CrossFade("running",0,0);
+            fsm.target.animator.CrossFade("Move",0,0);
             base.EnterState();
         }
         
@@ -57,7 +57,7 @@ namespace Battle.States
                 StopNav();
             }
 
-            // ChangeAnimation();
+            ChangeAnimation();
         }
 
         private void ChangeAnimation()
@@ -65,10 +65,9 @@ namespace Battle.States
             var agent = fsm.target.agent;
             var animator = fsm.target.animator;
             float percent = agent.speed / fsm.target.data.speed;
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
-                animator.CrossFade("Move",0f,0);
 
             animator.SetFloat(NavSpeedHash,percent);
+
         }
 
         private void CheckOvershooting()

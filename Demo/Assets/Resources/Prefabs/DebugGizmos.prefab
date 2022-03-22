@@ -563,6 +563,7 @@ MonoBehaviour:
   attackRadius: 4
   searchRadius: 0
   wanderRadius: 2
+  Character: {fileID: 0}
 --- !u!1 &5413246492212836723
 GameObject:
   m_ObjectHideFlags: 0
