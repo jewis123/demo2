@@ -1,0 +1,41 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "1",
+            "Name" : "character1",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character1",
+            "StartupAction" : "",
+            "ActionGroup"   : "character1",
+            "StartupWeapon" : "sword1001"
+        },
+        {
+            "ID" : "2",
+            "Name" : "character2",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character2",
+            "StartupAction" : "",
+            "ActionGroup"   : "character2",
+            "StartupWeapon" : "sword1002"
+        },
+        {
+            "ID" : "3",
+            "Name" : "character3",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character3",
+            "StartupAction" : "",
+            "ActionGroup"   : "character3",
+            "StartupWeapon" : "gun1001"
+        },
+        {
+            "ID" : "4",
+            "Name" : "character4",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character4",
+            "StartupAction" : "",
+            "ActionGroup"   : "character4",
+            "StartupWeapon" : ""
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "5",
+            "Name" : "monster1",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character5",
+            "StartupAI"   : "",
+            "StartupWeapon" : "",
+            "ActionGroup"   : "monster1",
+            "AISwitchs"     : [
+            ]
+        },
+        {
+            "ID" : "6",
+            "Name" : "monster2",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character6",
+            "StartupAI"   : "",
+            "StartupWeapon" : "",
+            "ActionGroup"   : "monster2",
+            "AISwitchs"     : [
+            ]
+        },
+        {
+            "ID" : "7",
+            "Name" : "monster3",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Player/character7",
+            "StartupAI"   : "",
+            "StartupWeapon" : "",
+            "ActionGroup"   : "monster3",
+            "AISwitchs"     : [
+            ]
+        }
+    ]
+}

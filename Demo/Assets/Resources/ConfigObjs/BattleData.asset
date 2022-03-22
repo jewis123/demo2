@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3aa05a6daf84127989e4d5ef13383b1, type: 3}
+  m_Name: BattleData
+  m_EditorClassIdentifier: 
+  id: 1
+  myTeamRadius: 5
+  myTeamMoveSpeed: 7
+  myTeamRotateSpeed: 0.484
+  teamPosOffsetRadius: 1
+  startWanderTime: {x: 3, y: 10}
+  characterData:
+  - id: 1
+    team: 0
+    HP: 1000
+    AP: 3
+    speed: 5
+    accelerateSpeed: 4
+    brakeSpeed: 2
+    attackRadius: 4
+    searchRadius: 10
+    chaseRadius: 10
+    wanderRadius: 1.5
+    moveable: 1
+    attribute:
+      damage: 200
+      defence: 100
+    carrySkill:
+      skillID: 1001
+      coolDown: 3
+      skillArea: 10
+      preSkillTime: 0
+      preSkillIronTime: 0
+      waitComboTime: 1
+      canCombo: 1
+      isAOE: 0
+      bulletSpeed: 0
+      skillDamage: 100
+      comboHitPoints:
+      - points:
+        - 0.5
+      comboSkillAudios:
+      - Audios/Effect/SFX_battle/stick/Banks4_51
+      comboSkillHitAudios:
+      - Audios/Effect/SFX_battle/sword/Banks17_6
+      comboSkillEffect: []
+      comboSkillHitEffect:
+      - effectPath: HitFx/vfx_AnimatedHit3
+        effectBonePath: avatar
+        duration: 1
+    job: 0
+    hitBackOffset: 1
+    beHitRatio: 0.319
+    beHitAudio: Audios/Effect/behit/mai_free_07_ouch
+  - id: 2
+    team: 0
+    HP: 1000
+    AP: 3
+    speed: 5
+    accelerateSpeed: 2
+    brakeSpeed: 3.78
+    attackRadius: 5
+    searchRadius: 10
+    chaseRadius: 10
+    wanderRadius: 1.5
+    moveable: 1
+    attribute:
+      damage: 200
+      defence: 100
+    carrySkill:
+      skillID: 1001
+      coolDown: 3
+      skillArea: 10
+      preSkillTime: 0
+      preSkillIronTime: 0
+      waitComboTime: 1
+      canCombo: 1
+      isAOE: 1
+      bulletSpeed: 0
+      skillDamage: 100
+      comboHitPoints:
+      - points:
+        - 0.5
+      comboSkillAudios:
+      - Audios/Effect/SFX_battle/stick/Banks4_51
+      comboSkillHitAudios:
+      - Audios/Effect/SFX_battle/sword/Banks17_6
+      comboSkillEffect: []
+      comboSkillHitEffect:
+      - effectPath: HitFx/vfx_AnimatedHit3
+        effectBonePath: avatar
+        duration: 1
+    job: 0
+    hitBackOffset: 1
+    beHitRatio: 0.319
+    beHitAudio: Audios/Effect/behit/mai_free_07_ouch
+  - id: 3
+    team: 0
+    HP: 1000
+    AP: 3
+    speed: 5
+    accelerateSpeed: 4
+    brakeSpeed: 3
+    attackRadius: 300
+    searchRadius: 10
+    chaseRadius: 10
+    wanderRadius: 1.5
+    moveable: 0
+    attribute:
+      damage: 200
+      defence: 100
+    carrySkill:
+      skillID: 1001
+      coolDown: 3
+      skillArea: 10
+      preSkillTime: 0
+      preSkillIronTime: 0
+      waitComboTime: 1
+      canCombo: 1
+      isAOE: 0
+      bulletSpeed: 10
+      skillDamage: 100
+      comboHitPoints:
+      - points:
+        - 0.5
+      comboSkillAudios:
+      - Audios/Effect/SFX_battle/stick/Banks4_51
+      comboSkillHitAudios:
+      - Audios/Effect/SFX_battle/sword/Banks17_6
+      comboSkillEffect: []
+      comboSkillHitEffect:
+      - effectPath: HitFx/vfx_AnimatedHit3
+        effectBonePath: avatar
+        duration: 1
+    job: 1
+    hitBackOffset: 1
+    beHitRatio: 0.319
+    beHitAudio: Audios/Effect/behit/mai_free_07_ouch
+  - id: 4
+    team: 0
+    HP: 1000
+    AP: 3
+    speed: 5
+    accelerateSpeed: 7
+    brakeSpeed: 1.5
+    attackRadius: 50
+    searchRadius: 10
+    chaseRadius: 10
+    wanderRadius: 1.5
+    moveable: 0
+    attribute:
+      damage: 200
+      defence: 100
+    carrySkill:
+      skillID: 1001
+      coolDown: 3
+      skillArea: 30
+      preSkillTime: 0
+      preSkillIronTime: 0
+      waitComboTime: 1
+      canCombo: 1
+      isAOE: 1
+      bulletSpeed: 3
+      skillDamage: 200
+      comboHitPoints:
+      - points:
+        - 0.5
+      comboSkillAudios:
+      - Audios/Effect/SFX_battle/stick/Banks4_51
+      comboSkillHitAudios:
+      - Audios/Effect/SFX_battle/sword/Banks17_6
+      comboSkillEffect: []
+      comboSkillHitEffect:
+      - effectPath: HitFx/vfx_AnimatedHit3
+        effectBonePath: avatar
+        duration: 1
+    job: 2
+    hitBackOffset: 1
+    beHitRatio: 0.319
+    beHitAudio: Audios/Effect/behit/mai_free_07_ouch
+  enermyTeamData:
+  - teamPositions: {x: 10, y: 0, z: 2}
+    charaters:
+    - id: 5
+      team: 1
+      HP: 10000
+      AP: 1
+      speed: 5
+      accelerateSpeed: 3.02
+      brakeSpeed: 0
+      attackRadius: 4
+      searchRadius: 0
+      chaseRadius: 10
+      wanderRadius: 0
+      moveable: 1
+      attribute:
+        damage: 200
+        defence: 100
+      carrySkill:
+        skillID: 1002
+        coolDown: 1000
+        skillArea: 5
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 0
+        canCombo: 0
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 100
+        comboHitPoints:
+        - points:
+          - 0.4
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/combat/SFX_2.4_0_124
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/sword/Banks3_69
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 0
+      beHitRatio: 0
+      beHitAudio: Audios/Effect/behit/SFX_2.4_0_67
+    - id: 6
+      team: 1
+      HP: 10000
+      AP: 1
+      speed: 5
+      accelerateSpeed: 3.02
+      brakeSpeed: 0
+      attackRadius: 4
+      searchRadius: 0
+      chaseRadius: 10
+      wanderRadius: 0
+      moveable: 1
+      attribute:
+        damage: 200
+        defence: 100
+      carrySkill:
+        skillID: 1002
+        coolDown: 1000
+        skillArea: 5
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 0
+        canCombo: 0
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 100
+        comboHitPoints:
+        - points:
+          - 0.4
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/combat/SFX_2.4_0_124
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/sword/Banks3_69
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 0
+      beHitRatio: 0
+      beHitAudio: Audios/Effect/behit/SFX_2.4_0_67
+    - id: 7
+      team: 1
+      HP: 10000
+      AP: 1
+      speed: 5
+      accelerateSpeed: 3.02
+      brakeSpeed: 0
+      attackRadius: 4
+      searchRadius: 0
+      chaseRadius: 10
+      wanderRadius: 0
+      moveable: 1
+      attribute:
+        damage: 200
+        defence: 100
+      carrySkill:
+        skillID: 1002
+        coolDown: 1000
+        skillArea: 5
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 0
+        canCombo: 0
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 100
+        comboHitPoints:
+        - points:
+          - 0.4
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/combat/SFX_2.4_0_124
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/sword/Banks3_69
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 0
+      beHitRatio: 0
+      beHitAudio: Audios/Effect/behit/SFX_2.4_0_67
+    teamRadius: 1.7
+    moveSpeed: 4
+    teamRotateSpeed: 0.348

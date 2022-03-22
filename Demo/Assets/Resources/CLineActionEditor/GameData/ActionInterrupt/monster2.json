@@ -1,0 +1,23 @@
+
+{
+    "ActionInterrupts" : [
+        {
+            "InterruptName" : "TonormalHit",
+            "ActionID"      : "normalHit",
+            "Enabled"       : false,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        },
+        {
+            "InterruptName" : "Toattack1",
+            "ActionID"      : "attack1",
+            "Enabled"       : false,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        }
+    ]
+}

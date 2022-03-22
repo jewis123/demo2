@@ -1,0 +1,1654 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae675990d3625b549b732c7bbcf4bc77, type: 3}
+  m_Name: URPFrameGraphAsset
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - id: 0
+  - id: 1
+  - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
+  - id: 9
+  - id: 10
+  - id: 11
+  - id: 12
+  - id: 13
+  - id: 14
+  - id: 15
+  - id: 16
+  - id: 17
+  - id: 18
+  - id: 19
+  - id: 20
+  - id: 21
+  - id: 22
+  - id: 23
+  - id: 24
+  - id: 25
+  - id: 26
+  - id: 27
+  - id: 28
+  - id: 29
+  - id: 30
+  - id: 31
+  edges:
+  - GUID: 915a3e87-dc02-435e-a8e1-9e16834e87a3
+    owner: {fileID: 11400000}
+    inputNodeGUID: da1cf87e-2a0e-43f1-9ee7-e94146adbb22
+    outputNodeGUID: 17a500f0-a35d-42c6-b4d0-df96a863f54d
+    inputFieldName: inputLut
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  - GUID: 0c4034e7-eac5-4d48-92af-4ea9890d691c
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: fb6789d0-9d57-4b7c-b2d2-e04a3007ea2d
+    inputFieldName: inputBloomMipUp1
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 03ad8779-ce42-416e-9264-649a98348032
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: 3274ef07-eae6-4496-8dcc-487cf2cbacd2
+    inputFieldName: inputBloomMipDown1
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 91b50cda-409a-4aa7-9538-092dcb2f3006
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: edd7abd4-335d-4851-877a-b45b52b34336
+    inputFieldName: inputBloomMipUp2
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 5f836dbd-65fd-4f22-97d1-a97d7fa68f01
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: f215e57f-5b10-4a95-981d-aefcada3cb78
+    inputFieldName: inputBloomMipDown2
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: a21fcbe1-ef65-4c85-8820-63d86caae6ed
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: 34397648-9211-4b63-96fc-5890369a55e4
+    inputFieldName: inputBloomMipUp3
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e5117a68-d778-4a6f-8552-dd9b2415df3e
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: 2c997dff-4ea7-4e09-835a-1fff9c65f30d
+    inputFieldName: inputBloomMipDown3
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d5c4518c-b7e3-4094-84d6-6b845b4b56cb
+    owner: {fileID: 11400000}
+    inputNodeGUID: da1cf87e-2a0e-43f1-9ee7-e94146adbb22
+    outputNodeGUID: 5ed3f4a1-6e91-4912-99a1-c5a09fe9a40d
+    inputFieldName: inputColor
+    outputFieldName: outputRT
+    inputPortIdentifier: inputColor
+    outputPortIdentifier: 
+  - GUID: d3df4221-e6fc-4e85-86a1-d733345e4ab9
+    owner: {fileID: 11400000}
+    inputNodeGUID: da1cf87e-2a0e-43f1-9ee7-e94146adbb22
+    outputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    inputFieldName: inputBloom
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  - GUID: 95f5875a-57b6-45cc-be73-257f22efdea4
+    owner: {fileID: 11400000}
+    inputNodeGUID: 80a17a43-07d7-4f75-bfba-c8e7902610bc
+    outputNodeGUID: 83914632-9527-49fb-a94e-704fa130d2ea
+    inputFieldName: inputColor
+    outputFieldName: outputRT
+    inputPortIdentifier: inputColor
+    outputPortIdentifier: 
+  - GUID: fe2ee723-7067-4f84-aded-a697e3b396dc
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+    outputNodeGUID: 39b3093e-3be4-4fb7-a0fe-827d32da0476
+    inputFieldName: inputColor
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 749119de-c2ba-4be0-b8c2-7e9285e06b33
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+    outputNodeGUID: 39b3093e-3be4-4fb7-a0fe-827d32da0476
+    inputFieldName: inputDepth
+    outputFieldName: outputDepth
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: e67e073b-7d03-48d9-9dbe-63e6130c841c
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: 42eb5f7f-1469-4645-86ad-bf1309b832ba
+    inputFieldName: inputFullCoCTexture
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: f3a4117d-12f7-43f3-b071-e8a20d7de069
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: dba413bc-60ba-48ff-ac07-e1e77398908e
+    inputFieldName: inputHalfCoCTexture
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d0d48d92-3f3a-4115-b6dc-0b6d37aefa48
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: 0f80365d-6690-495b-86a4-18399ce829dc
+    inputFieldName: inputPingTexture
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 227d8720-9e97-44c9-a37d-8ddf30bbb171
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: 6a197bae-4d77-44a6-b2fd-1fc8f5899421
+    inputFieldName: inputPongTexture
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 0c523880-0a93-4583-b23b-d9860924ead1
+    owner: {fileID: 11400000}
+    inputNodeGUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+    outputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    inputFieldName: inputSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ccc4ce13-8b8f-4340-99e6-223929d561e3
+    owner: {fileID: 11400000}
+    inputNodeGUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+    outputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    inputFieldName: inputDestination
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: a2d4d771-2d5b-4af8-bca0-5f4aa31d6ac8
+    owner: {fileID: 11400000}
+    inputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    outputNodeGUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+    inputFieldName: inputDestination
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: f4152479-cc7a-4ab7-a292-103562c60cdb
+    owner: {fileID: 11400000}
+    inputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    outputNodeGUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+    inputFieldName: inputSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ba266f17-54b1-4687-8c83-36d6340c2d16
+    owner: {fileID: 11400000}
+    inputNodeGUID: da1cf87e-2a0e-43f1-9ee7-e94146adbb22
+    outputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    inputFieldName: inputColorSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 2a7aa40a-4424-4e43-b442-c3cbd1dad18c
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    inputFieldName: inputSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: c3c51607-f6dc-45cf-b439-22c1c0002c61
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    inputFieldName: inputDestination
+    outputFieldName: outputPingTexture
+    inputPortIdentifier: inputColor
+    outputPortIdentifier: 
+  - GUID: 2f13fd68-ee18-45ab-b8a3-1e1e751df8e8
+    owner: {fileID: 11400000}
+    inputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    outputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    inputFieldName: inputBloomMipDown0
+    outputFieldName: outputPongTexture
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 4631834c-39e2-4190-9aab-dbe96d9a237f
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: 5123b8a2-6117-43d3-ab15-77f6ce09cf0d
+    inputFieldName: inputDepthSource
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 0
+  - GUID: 15f32875-1c04-4831-95c6-3c49cdc16e12
+    owner: {fileID: 11400000}
+    inputNodeGUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+    outputNodeGUID: 5123b8a2-6117-43d3-ab15-77f6ce09cf0d
+    inputFieldName: inputDepthSource
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 0
+  - GUID: fe841d5c-b408-419e-b055-b4f8c67ccb05
+    owner: {fileID: 11400000}
+    inputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    outputNodeGUID: 4deb0d77-305b-4e44-b37d-c7322453d500
+    inputFieldName: inputDestination
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 344dc600-b3a0-4dcf-8584-52e612e34731
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    inputFieldName: inputDestination
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: bbadc94d-dbe8-4b81-b8f4-2bf5e7e11c89
+    owner: {fileID: 11400000}
+    inputNodeGUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+    outputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    inputFieldName: inputSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 71045a52-7a7f-4d15-adf8-8bcbe28deb06
+    owner: {fileID: 11400000}
+    inputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    outputNodeGUID: 5123b8a2-6117-43d3-ab15-77f6ce09cf0d
+    inputFieldName: inputDepthSource
+    outputFieldName: output
+    inputPortIdentifier: 
+    outputPortIdentifier: 0
+  - GUID: 5f06b6a7-92ce-48fc-9223-6a88d1ae3f18
+    owner: {fileID: 11400000}
+    inputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    outputNodeGUID: 30331bbb-f43f-4923-9736-766a80339612
+    inputFieldName: inputEdgeTex
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: f395c3ff-7c93-4de6-8768-d9ee164d930e
+    owner: {fileID: 11400000}
+    inputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    outputNodeGUID: d0661700-5052-44a7-a8bb-fb79d301058a
+    inputFieldName: inputBlendTex
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 54450e8b-c409-4976-85cd-3837eaf635de
+    owner: {fileID: 11400000}
+    inputNodeGUID: b2038d82-d678-400c-b691-a57f7cfada4e
+    outputNodeGUID: 760ad1b9-2750-426b-b0dd-c6655332e5bd
+    inputFieldName: inputColor
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 880ac90d-5171-4231-8826-7206fa596e5d
+    owner: {fileID: 11400000}
+    inputNodeGUID: b2038d82-d678-400c-b691-a57f7cfada4e
+    outputNodeGUID: 771bd8a5-438b-4d6d-be42-bd0d4be6f0f1
+    inputFieldName: inputDepth
+    outputFieldName: outputRT
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: a3a48daa-9aea-4726-8f7e-d57ea2a6e514
+    owner: {fileID: 11400000}
+    inputNodeGUID: 39b3093e-3be4-4fb7-a0fe-827d32da0476
+    outputNodeGUID: b2038d82-d678-400c-b691-a57f7cfada4e
+    inputFieldName: inputColor
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 7d85895b-620b-49f4-987c-f0179840857d
+    owner: {fileID: 11400000}
+    inputNodeGUID: 39b3093e-3be4-4fb7-a0fe-827d32da0476
+    outputNodeGUID: b2038d82-d678-400c-b691-a57f7cfada4e
+    inputFieldName: inputDepth
+    outputFieldName: outputDepth
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 9ecb00a7-d49b-4b99-b192-c3b78dca8375
+    owner: {fileID: 11400000}
+    inputNodeGUID: b2038d82-d678-400c-b691-a57f7cfada4e
+    outputNodeGUID: 80a17a43-07d7-4f75-bfba-c8e7902610bc
+    inputFieldName: inputShadowMap
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  - GUID: 2049e7ef-508b-476d-90b8-abf2dca38788
+    owner: {fileID: 11400000}
+    inputNodeGUID: 17a500f0-a35d-42c6-b4d0-df96a863f54d
+    outputNodeGUID: 177f1b03-36fa-4ec2-9562-fb03c05b4869
+    inputFieldName: inputColor
+    outputFieldName: outputRT
+    inputPortIdentifier: inputColor
+    outputPortIdentifier: 
+  - GUID: c8f0c53a-1445-4fb8-a6ac-612fac904512
+    owner: {fileID: 11400000}
+    inputNodeGUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+    outputNodeGUID: 037bc1a2-418b-4064-8654-03d3cb13b6d3
+    inputFieldName: inputSource
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 54522ed9-0472-43cb-a959-044d12893a8e
+    owner: {fileID: 11400000}
+    inputNodeGUID: 5123b8a2-6117-43d3-ab15-77f6ce09cf0d
+    outputNodeGUID: 037bc1a2-418b-4064-8654-03d3cb13b6d3
+    inputFieldName: input
+    outputFieldName: outputDepth
+    inputPortIdentifier: 0
+    outputPortIdentifier: 
+  - GUID: e0c79b95-2e1e-4ef8-b9bd-0b19781d9afc
+    owner: {fileID: 11400000}
+    inputNodeGUID: 037bc1a2-418b-4064-8654-03d3cb13b6d3
+    outputNodeGUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+    inputFieldName: inputDepth
+    outputFieldName: outputDepth
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 1a7d3bce-ab43-4605-a992-f408e350a82b
+    owner: {fileID: 11400000}
+    inputNodeGUID: 037bc1a2-418b-4064-8654-03d3cb13b6d3
+    outputNodeGUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+    inputFieldName: inputColor
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: ce3d4b1a-a96d-4f40-9e84-667e333a7551
+    owner: {fileID: 11400000}
+    inputNodeGUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+    outputNodeGUID: 80a17a43-07d7-4f75-bfba-c8e7902610bc
+    inputFieldName: inputShadowMap
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  - GUID: 4ca22c37-fb12-482f-8716-c18014701080
+    owner: {fileID: 11400000}
+    inputNodeGUID: a882da2c-d672-43c6-a1ce-a5e1e8cf489c
+    outputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    inputFieldName: inputDestination
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: 0362d75b-c71d-45c7-b10d-c6ab9c287951
+    owner: {fileID: 11400000}
+    inputNodeGUID: a882da2c-d672-43c6-a1ce-a5e1e8cf489c
+    outputNodeGUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+    inputFieldName: inputSource
+    outputFieldName: outputSource
+    inputPortIdentifier: 
+    outputPortIdentifier: 
+  - GUID: d0c2b1be-327b-4402-9b6d-8b87ffebe2b6
+    owner: {fileID: 11400000}
+    inputNodeGUID: a882da2c-d672-43c6-a1ce-a5e1e8cf489c
+    outputNodeGUID: 17a500f0-a35d-42c6-b4d0-df96a863f54d
+    inputFieldName: inputLut
+    outputFieldName: outputColor
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  - GUID: 23ce7a2e-57d9-4595-b139-1d8aeacf0381
+    owner: {fileID: 11400000}
+    inputNodeGUID: a882da2c-d672-43c6-a1ce-a5e1e8cf489c
+    outputNodeGUID: 0a52b684-548f-4631-95df-5d0036def5a4
+    inputFieldName: inputBloom
+    outputFieldName: outputDestination
+    inputPortIdentifier: 
+    outputPortIdentifier: outputColor
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 1
+      y: 19
+      width: 328
+      height: 480
+    opened: 1
+    editorType:
+      serializedType: FrameGraph.FrameGraphInspectorView, com.jxu.framegraph.Runtime-Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 5
+      y: 25
+      width: 494
+      height: 264
+    opened: 1
+    editorType:
+      serializedType: FrameGraph.FrameGraphInspectorView, com.jxu.framegraph.Editor,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: -2681, y: 1437, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  m_CameraUsedByPass:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_Pass2Node:
+  - id: 2
+  - id: 3
+  - id: 6
+  - id: 7
+  - id: 15
+  - id: 16
+  - id: 17
+  - id: 23
+  - id: 24
+  - id: 26
+  - id: 29
+  - id: 30
+  - id: 31
+  m_Resource2Node:
+  - id: 0
+  - id: 1
+  - id: 4
+  - id: 5
+  - id: 8
+  - id: 9
+  - id: 10
+  - id: 11
+  - id: 12
+  - id: 13
+  - id: 14
+  - id: 18
+  - id: 19
+  - id: 20
+  - id: 21
+  - id: 22
+  - id: 27
+  - id: 28
+  m_Result:
+    id: 32
+  m_FrameGraph:
+    id: 33
+  references:
+    version: 1
+    00000000:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _CameraColorTexture
+        GUID: 760ad1b9-2750-426b-b0dd-c6655332e5bd
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -1144.2908
+          y: -1134.9998
+          width: 165
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - graphicsFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 0
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 4
+        depthBufferBits: 0
+        filterMode: 1
+    00000001:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _CameraDepthTexture
+        GUID: 771bd8a5-438b-4d6d-be42-bd0d4be6f0f1
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -1148.2908
+          y: -1020.9998
+          width: 169
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - colorFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 0
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 1
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    00000002:
+      type: {class: URPDrawSkyboxNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 39b3093e-3be4-4fb7-a0fe-827d32da0476
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: -407.29077
+          y: -1068.9998
+          width: 265
+          height: 99
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 1}
+        outputColor: 0
+        inputDepth: 0
+        outputDepth: 0
+    00000003:
+      type: {class: URPFinalTargetPostProcessPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: da1cf87e-2a0e-43f1-9ee7-e94146adbb22
+        computeOrder: 30
+        position:
+          serializedVersion: 2
+          x: 3886
+          y: -1279
+          width: 229
+          height: 147
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 1}
+        outputColor: 0
+        inputColorSource: 0
+        inputLut: 0
+        inputBloom: 0
+    00000004:
+      type: {class: CameraNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 5ed3f4a1-6e91-4912-99a1-c5a09fe9a40d
+        computeOrder: 29
+        position:
+          serializedVersion: 2
+          x: 3671
+          y: -1279
+          width: 111
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        outputRT: 0
+    00000005:
+      type: {class: URPGradingLutNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 177f1b03-36fa-4ec2-9562-fb03c05b4869
+        computeOrder: 27
+        position:
+          serializedVersion: 2
+          x: 3430.897
+          y: -718.1212
+          width: 152
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        outputRT: 0
+    00000006:
+      type: {class: URPColorGradingLutPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 17a500f0-a35d-42c6-b4d0-df96a863f54d
+        computeOrder: 28
+        position:
+          serializedVersion: 2
+          x: 3627.897
+          y: -718.1212
+          width: 193
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 1}
+        outputColor: 0
+    00000007:
+      type: {class: URPBloomPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 0a52b684-548f-4631-95df-5d0036def5a4
+        computeOrder: 26
+        position:
+          serializedVersion: 2
+          x: 3085.897
+          y: -754.1212
+          width: 257
+          height: 267
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 0
+        inputBloomMipDown0: 0
+        outputBloomMipDown0: 0
+        inputBloomMipUp1: 0
+        outputBloomMipUp1: 0
+        inputBloomMipDown1: 0
+        outputBloomMipDown1: 0
+        inputBloomMipUp2: 0
+        outputBloomMipUp2: 0
+        inputBloomMipDown2: 0
+        outputBloomMipDown2: 0
+        inputBloomMipUp3: 0
+        outputBloomMipUp3: 0
+        inputBloomMipDown3: 0
+        outputBloomMipDown3: 0
+    00000008:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipUp1
+        GUID: fb6789d0-9d57-4b7c-b2d2-e04a3007ea2d
+        computeOrder: 11
+        position:
+          serializedVersion: 2
+          x: 2725.8967
+          y: -657.1212
+          width: 126
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 3
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    00000009:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipDown1
+        GUID: 3274ef07-eae6-4496-8dcc-487cf2cbacd2
+        computeOrder: 10
+        position:
+          serializedVersion: 2
+          x: 2723.8967
+          y: -566.1212
+          width: 143
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 3
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    0000000A:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipUp2
+        GUID: edd7abd4-335d-4851-877a-b45b52b34336
+        computeOrder: 9
+        position:
+          serializedVersion: 2
+          x: 2724.8967
+          y: -475.1213
+          width: 127
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 5
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    0000000B:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipDown2
+        GUID: f215e57f-5b10-4a95-981d-aefcada3cb78
+        computeOrder: 8
+        position:
+          serializedVersion: 2
+          x: 2725.8967
+          y: -380.1213
+          width: 144
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 5
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    0000000C:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipUp3
+        GUID: 34397648-9211-4b63-96fc-5890369a55e4
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 2739.897
+          y: -281.12128
+          width: 128
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 6
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    0000000D:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BloomMipDown3
+        GUID: 2c997dff-4ea7-4e09-835a-1fff9c65f30d
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 2724.8967
+          y: -182.12128
+          width: 145
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 6
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 0
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 0
+    0000000E:
+      type: {class: URPShadowMapNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 83914632-9527-49fb-a94e-704fa130d2ea
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: -1403.2908
+          y: -762.9998
+          width: 217
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        outputRT: 0
+    0000000F:
+      type: {class: URPMainLightShadowCasterPassNode, ns: , asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 80a17a43-07d7-4f75-bfba-c8e7902610bc
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: -1133.2908
+          y: -767.9998
+          width: 245
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: -1
+        clearColor: {r: 0, g: 0, b: 0, a: 1}
+        outputColor: 0
+    00000010:
+      type: {class: URPRenderTransparentForwardPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 1ac6e7cb-977c-48da-acc4-454edcd02f19
+        computeOrder: 12
+        position:
+          serializedVersion: 2
+          x: -28.29071
+          y: -1068.9998
+          width: 265
+          height: 123
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 1}
+        outputColor: 0
+        inputDepth: 0
+        outputDepth: 0
+        inputShadowMap: 0
+    00000011:
+      type: {class: URPDepthOfFieldPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: dda42565-4b8d-4e12-91dd-f1c0b6aa52f1
+        computeOrder: 23
+        position:
+          serializedVersion: 2
+          x: 2004.8967
+          y: -1088.1212
+          width: 201
+          height: 219
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 1
+        inputFullCoCTexture: 0
+        outputFullCoCTexture: 0
+        inputHalfCoCTexture: 0
+        outputHalfCoCTexture: 0
+        inputPingTexture: 0
+        outputPingTexture: 0
+        inputPongTexture: 0
+        outputPongTexture: 0
+        inputDepthSource: 0
+    00000012:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _Temp
+        GUID: 4deb0d77-305b-4e44-b37d-c7322453d500
+        computeOrder: 21
+        position:
+          serializedVersion: 2
+          x: 933.897
+          y: -1144.1212
+          width: 111
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 0
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 25
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 1
+    00000013:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _FullCoCTex
+        GUID: 42eb5f7f-1469-4645-86ad-bf1309b832ba
+        computeOrder: 18
+        position:
+          serializedVersion: 2
+          x: 1543.897
+          y: -992.1212
+          width: 114
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - graphicsFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 25
+        graphicsFormat: 21
+        depthBufferBits: 0
+        filterMode: 1
+    00000014:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _HalfCoCTex
+        GUID: dba413bc-60ba-48ff-ac07-e1e77398908e
+        computeOrder: 17
+        position:
+          serializedVersion: 2
+          x: 1543.897
+          y: -904.1213
+          width: 117
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        - graphicsFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 25
+        graphicsFormat: 21
+        depthBufferBits: 0
+        filterMode: 1
+    00000015:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _PingTex
+        GUID: 0f80365d-6690-495b-86a4-18399ce829dc
+        computeOrder: 16
+        position:
+          serializedVersion: 2
+          x: 1546.897
+          y: -805.1212
+          width: 111
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        - colorFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 22
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 1
+    00000016:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _PongTex
+        GUID: 6a197bae-4d77-44a6-b2fd-1fc8f5899421
+        computeOrder: 15
+        position:
+          serializedVersion: 2
+          x: 1546.897
+          y: -706.1212
+          width: 111
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - downsampling
+        - colorFormat
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 22
+        graphicsFormat: 0
+        depthBufferBits: 0
+        filterMode: 1
+    00000017:
+      type: {class: URPMotionBlurPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: d28d0dad-8ecc-4f73-8064-44511927c4a9
+        computeOrder: 24
+        position:
+          serializedVersion: 2
+          x: 2448.897
+          y: -1088.1212
+          width: 193
+          height: 123
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 1
+        inputDepthSource: 0
+    00000018:
+      type: {class: URPPaniniProjectionPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 497d50e2-bd9b-4666-a618-8f954bfa5ad4
+        computeOrder: 25
+        position:
+          serializedVersion: 2
+          x: 2803.897
+          y: -1088.1212
+          width: 193
+          height: 99
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 1
+    00000019:
+      type: {class: RelayNode, ns: , asm: com.alelievr.NodeGraphProcessor.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 5123b8a2-6117-43d3-ab15-77f6ce09cf0d
+        computeOrder: 14
+        position:
+          serializedVersion: 2
+          x: 994.99994
+          y: 84.37108
+          width: 200
+          height: 200
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        unpackOutput: 0
+        packInput: 0
+        inputEdgeCount: 0
+    0000001A:
+      type: {class: URPSubpixelMorphologicalAntialiasingPassNode, ns: FrameGraph,
+        asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: e207c075-b789-4a9c-b5b3-3a0cd7fc6290
+        computeOrder: 22
+        position:
+          serializedVersion: 2
+          x: 1162.897
+          y: -1088.1212
+          width: 211
+          height: 171
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 1
+        inputEdgeTex: 0
+        outputEdgeTex: 0
+        inputBlendTex: 0
+        outputBlendTex: 0
+        inputDepthSource: 0
+    0000001B:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _EdgeTexture
+        GUID: 30331bbb-f43f-4923-9736-766a80339612
+        computeOrder: 20
+        position:
+          serializedVersion: 2
+          x: 814.897
+          y: -965.1213
+          width: 119
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - graphicsFormat
+        - depthBufferBits
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 25
+        graphicsFormat: 6
+        depthBufferBits: 0
+        filterMode: 1
+    0000001C:
+      type: {class: CreateRenderTargetNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: _BlendTexture
+        GUID: d0661700-5052-44a7-a8bb-fb79d301058a
+        computeOrder: 19
+        position:
+          serializedVersion: 2
+          x: 814.897
+          y: -866.1212
+          width: 123
+          height: 75
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields:
+        - graphicsFormat
+        - depthBufferBits
+        outputRT: 0
+        width: 0
+        height: 0
+        downsampling: 1
+        useMipMap: 0
+        autoGenerateMips: 0
+        colorFormat: 25
+        graphicsFormat: 59
+        depthBufferBits: 0
+        filterMode: 0
+    0000001D:
+      type: {class: URPRenderOpaqueForwardPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: b2038d82-d678-400c-b691-a57f7cfada4e
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: -777.2908
+          y: -1068.9998
+          width: 265
+          height: 123
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 0}
+        outputColor: 0
+        inputDepth: 0
+        outputDepth: 0
+        inputShadowMap: 0
+    0000001E:
+      type: {class: URPInvokeOnRenderObjectCallbackPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: 037bc1a2-418b-4064-8654-03d3cb13b6d3
+        computeOrder: 13
+        position:
+          serializedVersion: 2
+          x: 350.2621
+          y: -1069
+          width: 276
+          height: 99
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputColor: 0
+        clearFlag: 0
+        clearColor: {r: 0, g: 0, b: 0, a: 0}
+        outputColor: 0
+        inputDepth: 0
+        outputDepth: 0
+    0000001F:
+      type: {class: URPStackedPostProcessPassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        nodeCustomName: 
+        GUID: a882da2c-d672-43c6-a1ce-a5e1e8cf489c
+        computeOrder: 31
+        position:
+          serializedVersion: 2
+          x: 4039
+          y: -1088
+          width: 212
+          height: 147
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        customFields: []
+        actived: 1
+        inputDestination: 0
+        outputDestination: 0
+        inputSource: 0
+        outputSource: 0
+        settings:
+          swap: 1
+        inputLut: 0
+        inputBloom: 0
+    00000020:
+      type: {class: FrameGraphCompiler/Result, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        error: 0
+        res2Info:
+        - firstPass: 10
+          lastPass: 1
+          readers: 0100000003000000060000000700000008000000090000000c000000
+          writers: 00000000050000000a0000000b000000
+          trimmedSortedList: 0a00000000000000050000000b00000009000000060000000700000008000000030000000c00000001000000
+        - firstPass: 10
+          lastPass: 7
+          readers: 060000000700000009000000
+          writers: 00000000050000000a0000000b000000
+          trimmedSortedList: 0a00000000000000050000000b000000090000000600000007000000
+        - firstPass: 1
+          lastPass: 1
+          readers: 
+          writers: 01000000
+          trimmedSortedList: 01000000
+        - firstPass: 2
+          lastPass: 1
+          readers: 010000000c000000
+          writers: 02000000
+          trimmedSortedList: 020000000c00000001000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 3
+          lastPass: 3
+          readers: 
+          writers: 03000000
+          trimmedSortedList: 03000000
+        - firstPass: 4
+          lastPass: 5
+          readers: 050000000a000000
+          writers: 04000000
+          trimmedSortedList: 040000000a00000005000000
+        - firstPass: 9
+          lastPass: 12
+          readers: 
+          writers: 060000000700000008000000090000000c000000
+          trimmedSortedList: 090000000600000007000000080000000c000000
+        - firstPass: 6
+          lastPass: 6
+          readers: 
+          writers: 06000000
+          trimmedSortedList: 06000000
+        - firstPass: 6
+          lastPass: 6
+          readers: 
+          writers: 06000000
+          trimmedSortedList: 06000000
+        - firstPass: 6
+          lastPass: 1
+          readers: 010000000c000000
+          writers: 0300000006000000
+          trimmedSortedList: 06000000030000000c00000001000000
+        - firstPass: 6
+          lastPass: 3
+          readers: 
+          writers: 0300000006000000
+          trimmedSortedList: 0600000003000000
+        - firstPass: 9
+          lastPass: 9
+          readers: 
+          writers: 09000000
+          trimmedSortedList: 09000000
+        - firstPass: 9
+          lastPass: 9
+          readers: 
+          writers: 09000000
+          trimmedSortedList: 09000000
+        sortedPasses: 040000000a00000000000000050000000b0000000900000006000000070000000800000003000000020000000c00000001000000
+    00000021:
+      type: {class: FrameGraph, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        m_ResNodes:
+        - id: 34
+        - id: 35
+        - id: 36
+        - id: 37
+        - id: 38
+        - id: 39
+        - id: 40
+        - id: 41
+        - id: 42
+        - id: 43
+        - id: 44
+        - id: 45
+        - id: 46
+        - id: 47
+        - id: 48
+        - id: 49
+        - id: 50
+        - id: 51
+        m_PassNodes:
+        - id: 52
+        - id: 53
+        - id: 54
+        - id: 55
+        - id: 56
+        - id: 57
+        - id: 58
+        - id: 59
+        - id: 60
+        - id: 61
+        - id: 62
+        - id: 63
+        - id: 64
+    00000022:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 0
+        name: _CameraColorTexture
+    00000023:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 1
+        name: _CameraDepthTexture
+    00000024:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 2
+        name: Camera
+    00000025:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 3
+        name: _InternalGradingLut
+    00000026:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 4
+        name: _BloomMipUp1
+    00000027:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 5
+        name: _BloomMipDown1
+    00000028:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 6
+        name: _BloomMipUp2
+    00000029:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 7
+        name: _BloomMipDown2
+    0000002A:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 8
+        name: _BloomMipUp3
+    0000002B:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 9
+        name: _BloomMipDown3
+    0000002C:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 10
+        name: _MainLightShadowmapTexture
+    0000002D:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 11
+        name: _Temp
+    0000002E:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 12
+        name: _FullCoCTex
+    0000002F:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 13
+        name: _HalfCoCTex
+    00000030:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 14
+        name: _PingTex
+    00000031:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 15
+        name: _PongTex
+    00000032:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 16
+        name: _EdgeTexture
+    00000033:
+      type: {class: ResourceNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 17
+        name: _BlendTexture
+    00000034:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 0
+        name: URPDrawSkyboxPass
+        inputReses: 
+        outputReses: 0000000001000000
+        inputResRefPasses: 
+        outputResRefPasses: 0a0000000a000000
+    00000035:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 1
+        name: URPFinalTargetPostProcessPass
+        inputReses: 00000000030000000e000000
+        outputReses: 02000000
+        inputResRefPasses: 080000000200000003000000
+        outputResRefPasses: ffffffff
+    00000036:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 2
+        name: URPColorGradingLutPass
+        inputReses: 
+        outputReses: 03000000
+        inputResRefPasses: 
+        outputResRefPasses: ffffffff
+    00000037:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 3
+        name: URPBloomPass
+        inputReses: 00000000
+        outputReses: 0e0000000f000000040000000500000006000000070000000800000009000000
+        inputResRefPasses: 08000000
+        outputResRefPasses: 0600000006000000ffffffffffffffffffffffffffffffffffffffffffffffff
+    00000038:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 4
+        name: URPMainLightShadowCasterPass
+        inputReses: 
+        outputReses: 0a000000
+        inputResRefPasses: 
+        outputResRefPasses: ffffffff
+    00000039:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 5
+        name: URPRenderTransparentForwardPass
+        inputReses: 0a000000
+        outputReses: 0000000001000000
+        inputResRefPasses: 04000000
+        outputResRefPasses: 0000000000000000
+    0000003A:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 6
+        name: URPDepthOfFieldPass
+        inputReses: 0000000001000000
+        outputReses: 0b0000000c0000000d0000000e0000000f000000
+        inputResRefPasses: 090000000b000000
+        outputResRefPasses: 09000000ffffffffffffffffffffffffffffffff
+    0000003B:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 7
+        name: URPMotionBlurPass
+        inputReses: 0000000001000000
+        outputReses: 0b000000
+        inputResRefPasses: 060000000b000000
+        outputResRefPasses: 06000000
+    0000003C:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 8
+        name: URPPaniniProjectionPass
+        inputReses: 00000000
+        outputReses: 0b000000
+        inputResRefPasses: 07000000
+        outputResRefPasses: 07000000
+    0000003D:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 9
+        name: URPSMAAPass
+        inputReses: 0000000001000000
+        outputReses: 0b0000001000000011000000
+        inputResRefPasses: 0b0000000b000000
+        outputResRefPasses: ffffffffffffffffffffffff
+    0000003E:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 10
+        name: URPRenderOpaqueForwardPass
+        inputReses: 0a000000
+        outputReses: 0000000001000000
+        inputResRefPasses: 04000000
+        outputResRefPasses: ffffffffffffffff
+    0000003F:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 11
+        name: URPInvokeOnRenderObjectCallbackPass
+        inputReses: 
+        outputReses: 0000000001000000
+        inputResRefPasses: 
+        outputResRefPasses: 0500000005000000
+    00000040:
+      type: {class: PassNode, ns: FrameGraph, asm: com.jxu.framegraph.Runtime}
+      data:
+        id: 12
+        name: URPStackedPostProcessPass
+        inputReses: 00000000030000000e000000
+        outputReses: 0b000000
+        inputResRefPasses: 080000000200000003000000
+        outputResRefPasses: 08000000

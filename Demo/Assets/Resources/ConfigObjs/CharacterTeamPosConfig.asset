@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80217ff1bdf4249bf66f61c00d83368, type: 3}
+  m_Name: CharacterTeamPosConfig
+  m_EditorClassIdentifier: 
+  characters: 010000000000000002000000000000000300000000000000000000000400000000000000
+  colCount: 3
+  gapSize: 1

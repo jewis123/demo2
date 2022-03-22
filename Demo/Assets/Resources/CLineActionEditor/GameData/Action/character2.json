@@ -1,0 +1,506 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "attack1",
+            "Name" : "attack1",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 917,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 917,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "attack_1",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "VFXPack/Sword slash VFX/Prefabs/vfx_sword_prick_1",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character2_attack1",
+                        "DummyType"  : "EEDT_DummyFollow",
+                        "DummyRoot"  : "SkillRoot_Mid",
+                        "DummyAttach" : "SkillRoot_Mid",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_sword_audio_1003",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 867,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character2_attack1"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_FrameFan",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 1,
+                            "Delay"      : 0.0,
+                            "Radius"     : 4.0,
+                            "Height"     : 4.0,
+                            "Degree"     : 45.0
+                        },
+                        "MotionAnimatorType" : "EMAT_None",
+                        "MotionAnimatorProperty" : {
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitDamage",
+                                "DamageType"   : "EDT_Normal"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "attack2",
+            "Name" : "attack2",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 1233,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_sword_audio_1004",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "VFXPack/Sword slash VFX/Prefabs/vfx_sword_sword_slash_3",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character2_attack2",
+                        "DummyType"  : "EEDT_DummyPosition",
+                        "DummyRoot"  : "SkillRoot_Mid",
+                        "DummyAttach" : "SkillRoot_Mid",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 1683,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "attack_2",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 1150,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character2_attack2"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_FrameFan",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 1,
+                            "Delay"      : 0.0,
+                            "Radius"     : 4.0,
+                            "Height"     : 4.0,
+                            "Degree"     : 120.0
+                        },
+                        "MotionAnimatorType" : "EMAT_None",
+                        "MotionAnimatorProperty" : {
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitDamage",
+                                "DamageType"   : "EDT_Normal"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "attack3",
+            "Name" : "attack3",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 1283,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 1283,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "attack_3",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 67,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_sword_audio_1005",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 317,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "VFXPack/Sword slash VFX/Prefabs/vfx_sword_sword_slash_5",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character2_attack3",
+                        "DummyType"  : "EEDT_DummyPosition",
+                        "DummyRoot"  : "SkillRoot_Mid",
+                        "DummyAttach" : "SkillRoot_Mid",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : -90.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 1217,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character2_attack3"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_FrameFan",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 1,
+                            "Delay"      : 0.0,
+                            "Radius"     : 4.0,
+                            "Height"     : 4.0,
+                            "Degree"     : 0.0
+                        },
+                        "MotionAnimatorType" : "EMAT_None",
+                        "MotionAnimatorProperty" : {
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitDamage",
+                                "DamageType"   : "EDT_Normal"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "normalHit",
+            "Name" : "normalHit",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : false,
+            "FaceTarget"    : false,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "BeHit",
+            "TotalTime"     : 1417,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 1417,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "reaction",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/hit_scream/hit_scream_girl_1001",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+            ]
+        }
+    ]
+}

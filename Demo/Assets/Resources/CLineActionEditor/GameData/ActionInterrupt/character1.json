@@ -1,0 +1,41 @@
+
+{
+    "ActionInterrupts" : [
+        {
+            "InterruptName" : "Toattack1",
+            "ActionID"      : "attack1",
+            "Enabled"       : false,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        },
+        {
+            "InterruptName" : "Toattack2",
+            "ActionID"      : "attack2",
+            "Enabled"       : false,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        },
+        {
+            "InterruptName" : "Toattack3",
+            "ActionID"      : "attack3",
+            "Enabled"       : false,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        },
+        {
+            "InterruptName" : "TonormalHit",
+            "ActionID"      : "normalHit",
+            "Enabled"       : true,
+            "CheckAllCondition" : false,
+            "CrossFadeDuration" : 0.0,
+            "Conditions"        : [
+            ]
+        }
+    ]
+}

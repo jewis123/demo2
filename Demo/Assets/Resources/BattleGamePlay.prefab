@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1524385677417466836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1524385677417466834}
+  - component: {fileID: 1524385677417466835}
+  - component: {fileID: 1524385677417466833}
+  - component: {fileID: 1524385677417466832}
+  m_Layer: 0
+  m_Name: BattleGamePlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1524385677417466834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524385677417466836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.2289867, y: -11.962295, z: 23.470316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1524385677417466835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524385677417466836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1f57d4cb004de0ab866b96ffb360a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleData:
+    id: 1
+    characterData:
+    - id: 1
+      team: 0
+      HP: 1000
+      AP: 3
+      speed: 10
+      moveable: 1
+      attribute:
+        damage: 100
+        defence: 50
+      carrySkill:
+        skillID: 1001
+        bulletType: 0
+        coolDown: 5
+        skillArea: 2
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 1
+        canCombo: 1
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 200
+        comboHitPoints:
+        - points:
+          - 0.311
+        - points:
+          - 0.311
+          - 0.671
+        - points:
+          - 0.311
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 1.5
+      beHitRatio: 0.32
+      beHitAudio: Audios/Effect/behit/mai_free_08_damage
+    - id: 1
+      team: 0
+      HP: 1000
+      AP: 3
+      speed: 10
+      moveable: 1
+      attribute:
+        damage: 100
+        defence: 50
+      carrySkill:
+        skillID: 1001
+        bulletType: 0
+        coolDown: 5
+        skillArea: 2
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 1
+        canCombo: 1
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 200
+        comboHitPoints:
+        - points:
+          - 0.311
+        - points:
+          - 0.311
+          - 0.671
+        - points:
+          - 0.311
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 1.5
+      beHitRatio: 0.32
+      beHitAudio: Audios/Effect/behit/mai_free_08_damage
+    - id: 1
+      team: 0
+      HP: 1000
+      AP: 3
+      speed: 10
+      moveable: 1
+      attribute:
+        damage: 100
+        defence: 50
+      carrySkill:
+        skillID: 1001
+        bulletType: 0
+        coolDown: 5
+        skillArea: 2
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 1
+        canCombo: 1
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 200
+        comboHitPoints:
+        - points:
+          - 0.311
+        - points:
+          - 0.311
+          - 0.671
+        - points:
+          - 0.311
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 1.5
+      beHitRatio: 0.32
+      beHitAudio: Audios/Effect/behit/mai_free_08_damage
+    - id: 1
+      team: 0
+      HP: 1000
+      AP: 3
+      speed: 10
+      moveable: 1
+      attribute:
+        damage: 100
+        defence: 50
+      carrySkill:
+        skillID: 1001
+        bulletType: 0
+        coolDown: 5
+        skillArea: 2
+        preSkillTime: 0
+        preSkillIronTime: 0
+        waitComboTime: 1
+        canCombo: 1
+        isAOE: 0
+        bulletSpeed: 0
+        skillDamage: 200
+        comboHitPoints:
+        - points:
+          - 0.311
+        - points:
+          - 0.311
+          - 0.671
+        - points:
+          - 0.311
+        comboSkillAudios:
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        - Audios/Effect/SFX_battle/stick/Banks4_51
+        comboSkillHitAudios:
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        - Audios/Effect/SFX_battle/behit/Banks13_63
+        comboSkillEffect: []
+        comboSkillHitEffect: []
+      job: 0
+      hitBackOffset: 1.5
+      beHitRatio: 0.32
+      beHitAudio: Audios/Effect/behit/mai_free_08_damage
+  myTeamStandPoses: []
+  enermyTeamStandPoses: []
+  bulletTrackManager: {fileID: 0}
+  effectManager: {fileID: 0}
+  Input: {fileID: 0}
+  battleSpeed: 1
+--- !u!114 &1524385677417466833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524385677417466836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: cbe3ca5e9141749439cd23405c08a401, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d87fb993-912e-4610-b2a8-7a6ed8b50e87
+    m_ActionName: BattleInput/Attack_1[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 115a75eb-acad-4ed1-b44b-cc4d74c5c654
+    m_ActionName: BattleInput/Attack_2[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 505b4c68-0450-4f27-bf74-7e21e03d602d
+    m_ActionName: BattleInput/Attack_3[/Keyboard/c]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: control scheme
+  m_DefaultActionMap: BattleInput
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1524385677417466832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524385677417466836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3b5c46a16a44a2806ee118810c9e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePlay: {fileID: 0}

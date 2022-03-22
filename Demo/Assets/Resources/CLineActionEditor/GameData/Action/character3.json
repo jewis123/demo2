@@ -1,0 +1,1184 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "attack1",
+            "Name" : "attack1",
+            "CanMove" : false,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 800,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "HitFx/Guns/vfx_toon2_toon_punch",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character3_attack1",
+                        "DummyType"  : "EEDT_DummyFollow",
+                        "DummyRoot"  : "gunfire",
+                        "DummyAttach" : "gunfire",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 1",
+                    "TrackIndex" : 1,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 267,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 2",
+                    "TrackIndex" : 2,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 533,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 750,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character3_attack1"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "attack2",
+            "Name" : "attack2",
+            "CanMove" : false,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 800,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "HitFx/Guns/vfx_toon2_toon_punch",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character3_attack1",
+                        "DummyType"  : "EEDT_DummyFollow",
+                        "DummyRoot"  : "gunfire",
+                        "DummyAttach" : "gunfire",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 1",
+                    "TrackIndex" : 1,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 267,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 2",
+                    "TrackIndex" : 2,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 533,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 750,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character3_attack1"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "attack3",
+            "Name" : "attack3",
+            "CanMove" : false,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : true,
+            "FaceTarget"    : true,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 800,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlayEffect",
+                    "EventData"   : {
+                        "EffectName" : "HitFx/Guns/vfx_toon2_toon_punch",
+                        "IsLoop"     : true,
+                        "LoopName"   : "character3_attack1",
+                        "DummyType"  : "EEDT_DummyFollow",
+                        "DummyRoot"  : "gunfire",
+                        "DummyAttach" : "gunfire",
+                        "Position"    : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "Euler"       : {
+                            "x" : 0.0,
+                            "y" : 0.0,
+                            "z" : 0.0
+                        },
+                        "UseRandom"   : false,
+                        "RandomEffectList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 1",
+                    "TrackIndex" : 1,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 267,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_gun_audio_1006",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Animation 2",
+                    "TrackIndex" : 2,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 533,
+                    "Duration"    : 267,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "shootingArrow",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Effect 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 750,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_StopEffect",
+                    "EventData"   : {
+                        "LoopEffectName" : "character3_attack1"
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 267,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "gunfire",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_Physical",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 0,
+                            "Delay"      : 0.0,
+                            "ModlePrefab" : "Prefabs/Bullets/Bullet",
+                            "MaxPassNum"  : 1,
+                            "EntityEndEffect" : "",
+                            "EntityColliderOtherEffectLayerNameList" : [
+                            ],
+                            "EntityColliderOtherEffectLayerEffectList" : [
+                            ],
+                            "HitType"                                  : "HitEnermy"
+                        },
+                        "MotionAnimatorType" : "EMAT_Line",
+                        "MotionAnimatorProperty" : {
+                            "UseWeaponAttackDist" : true,
+                            "Distance"            : 50.0,
+                            "Speed"               : 10.0,
+                            "Acc"                 : 10.0
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitEffect",
+                                "Effect"       : "HitFx/Guns/vfx_BasicHit",
+                                "EffectCritical" : "",
+                                "EffectBlock"    : "",
+                                "EffectOffset"   : {
+                                    "x" : 0.0,
+                                    "y" : 0.0,
+                                    "z" : 0.0
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "ID" : "normalHit",
+            "Name" : "normalHit",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : false,
+            "FaceTarget"    : false,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "BeHit",
+            "TotalTime"     : 617,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 630,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "reaction",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/hit_scream/hit_scream_girl_1001",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+            ]
+        }
+    ]
+}

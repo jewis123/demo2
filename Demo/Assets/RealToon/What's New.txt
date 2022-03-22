@@ -1,0 +1,72 @@
+What's New to RealToon V5.0.8p4 (Patch#4) (December 2021)
+=====================================
+[New]
+- Planar Reflection (HDRP 10 to Later)
+- Swap Shader To RealToon (New Tool) (Built-In, URP and HDRP)
+  *Swap shader from VRoid|VRM or Unity Shaders to RealToon.
+
+[Fix]
+- Object selection on the scene window. (HDRP 10 to later)
+
+[Change]
+- "Selflit - Power" option changed default value to 50. (HDRP)
+- "Texture and Main Color Intensity" changed default value to 0. (HDRP)
+- "Light Ignore Y Normal Direction" has been moved to Shadow category, (URP and HDRP)
+  because it is also affect "ShadowT" feature.
+
+[Improved]
+- RayTracing exposure. (HDRP 10 to later)
+
+
+
+
+
+
+What's New to RealToon V5.0.8 Update (March 2020) (Main Update)
+=====================================
+
+[New Options]
+
+- Use Vertex Color As Normal Direction (Outline) [URP and HDRP]
+*Use the vertex colors of the object as normal direction for outline.
+
+- Affect Shadow (Transparency) [URP]
+*Transparency affects shadow.
+
+- PTexture Color (PTexture) [URP]
+*Can now color the PTexture feature.
+
+- Optimize for [Light Mode:Baked] (Lightmapping) [URP]
+*Optimize the shader for [Light Mode: Baked]
+
+- On shader "Screen Space Outline" (Outline) [URP and HDRP]
+*Screen space - depth based outline on the shader.
+
+- Blending (Transparency) [URP and HDRP]
+- Rim Light Intensity (RimLight) [URP]
+
+- Refresh Settings (URP)
+*This will refresh the settings and apply it properly.
+*Useful if the settings are not applied properly or after change shader or if there is a problem on the shader.
+
+
+[New Features and Support]
+
+- DeNorSob Outline (Post - Processing Effect) [URP and HDRP]
+*Sobel, Depth and Normal based outline.
+
+- Smooth Object Normal - Helper Script (Smooth Object Normal) [URP and HDRP]
+*This helper script will help "Smooth Object Normal" feature to follow object animation or movement.
+
+- Lightmap Support [URP]
+- PlayStation Support [URP and HDRP]
+- URP 11 Support
+- HDRP 11 Support
+- Unity DOTS Ready [URP and HDRP]
+=====================================
+
+#Read the "Change - Fix Log.txt." file for previous updates.
+#This update supports Unity 5, 2017, 2018, 2019, 2020, 2021 and future unity versions.
+
+[Other Notes]
+* If you encounter some problems or need help just contact by email.

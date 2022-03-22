@@ -1,0 +1,38 @@
+
+{
+    "Property" : [
+        {
+            "BuffType" : "EBT_NumericalBuff",
+            "BuffData" : {
+                "ID" : "1",
+                "Name" : "\u79FB\u52A8\u901F\u5EA6\u52A0+10%",
+                "Description" : "\u79FB\u52A8\u901F\u5EA6\u52A0+10%",
+                "Icon"        : "",
+                "BuffTarget"  : "EBT_Self",
+                "AddType"     : "EAT_AddNone",
+                "AddNum"      : 99,
+                "Duration"    : 10,
+                "Attr"        : "EAT_CurMoveSpeed",
+                "AddValue"    : 0,
+                "MulValue"    : 10000,
+                "StartEffect" : "",
+                "KeepEffect"  : "",
+                "BuffDummy"   : ""
+            }
+        },
+        {
+            "BuffType" : "EBT_SpecialBuffDizzy",
+            "BuffData" : {
+                "ID" : "2",
+                "Name" : "\u7729\u6655",
+                "Description" : "\u7729\u6655",
+                "Icon"        : "Textures/joystick_touch",
+                "BuffTarget"  : "EBT_None",
+                "AddType"     : "EAT_AddNone",
+                "AddNum"      : 1,
+                "Duration"    : 10,
+                "DizzyTime"   : 10000
+            }
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+* -text
+*.cs text=auto
+*.lua text=auto

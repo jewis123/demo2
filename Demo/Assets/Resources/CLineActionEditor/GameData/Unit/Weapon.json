@@ -1,0 +1,74 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "sword1001",
+            "Name" : "\u7EC6\u5251",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Weapon/sword1001",
+            "SetupAction" : "",
+            "ManShowAction" : "",
+            "WomanShowAction" : "",
+            "AttachDummyIdle" : "Weapon_R",
+            "AttachDummyAttackL" : "",
+            "AttachDummyAttackR" : "Weapon_R",
+            "PositionOffset"     : {
+                "x" : -4.21999979019165,
+                "y" : 0.0,
+                "z" : 0.0
+            },
+            "WeaponType"         : "EWT_Sword",
+            "IsDribble"          : true,
+            "DeadType"           : "EDT_Normal",
+            "ShowPrefab"         : "",
+            "ActionList"         : [
+            ]
+        },
+        {
+            "ID" : "gun1001",
+            "Name" : "\u67AA",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Weapon/gun1001",
+            "SetupAction" : "",
+            "ManShowAction" : "",
+            "WomanShowAction" : "",
+            "AttachDummyIdle" : "Weapon_R",
+            "AttachDummyAttackL" : "Weapon_L",
+            "AttachDummyAttackR" : "Weapon_R",
+            "PositionOffset"     : {
+                "x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+            },
+            "WeaponType"         : "EWT_GUN",
+            "IsDribble"          : false,
+            "DeadType"           : "EDT_NormalOrExplosion",
+            "ShowPrefab"         : "",
+            "ActionList"         : [
+            ]
+        },
+        {
+            "ID" : "sword1002",
+            "Name" : "\u68D2\u69CC",
+            "Description" : "",
+            "Prefab"      : "CLineActionEditor/Prefabs/Weapon/sword1002",
+            "SetupAction" : "",
+            "ManShowAction" : "",
+            "WomanShowAction" : "",
+            "AttachDummyIdle" : "Weapon_R",
+            "AttachDummyAttackL" : "Weapon_L",
+            "AttachDummyAttackR" : "Weapon_R",
+            "PositionOffset"     : {
+                "x" : 0.0,
+                "y" : 0.0,
+                "z" : 0.0
+            },
+            "WeaponType"         : "EWT_Sword",
+            "IsDribble"          : true,
+            "DeadType"           : "EDT_Normal",
+            "ShowPrefab"         : "",
+            "ActionList"         : [
+            ]
+        }
+    ]
+}

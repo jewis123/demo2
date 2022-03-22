@@ -1,0 +1,171 @@
+
+{
+    "Property" : [
+        {
+            "ID" : "normalHit",
+            "Name" : "normalHit",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : false,
+            "FaceTarget"    : false,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "BeHit",
+            "TotalTime"     : 617,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 630,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "reaction",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 0,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/hit_scream/hit_scream_man_1001",
+                        "InstanceCount" : 1,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+            ]
+        },
+        {
+            "ID" : "attack1",
+            "Name" : "attack1",
+            "CanMove" : true,
+            "CanRotate" : true,
+            "CanHurt"   : true,
+            "CanHit"    : true,
+            "IgnoreGravity" : false,
+            "FaceTarget"    : false,
+            "IsGod"         : false,
+            "Level"         : 0,
+            "ActionStatus"  : "Attack",
+            "TotalTime"     : 1700,
+            "DefaultAction" : "",
+            "Events"        : [
+                {
+                    "TrackName" : "Animation 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Duration",
+                    "TriggerTime" : 0,
+                    "Duration"    : 2200,
+                    "EventType"   : "EET_PlayAnim",
+                    "EventData"   : {
+                        "AnimName" : "attack",
+                        "AnimType" : "EAT_Force",
+                        "TriggerName" : "",
+                        "TriggerValue" : ""
+                    }
+                },
+                {
+                    "TrackName" : "Audio 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_PlaySound",
+                    "EventData"   : {
+                        "SoundName" : "CLineActionEditor/Prefabs/Audio/attack/attack_roal_audio",
+                        "InstanceCount" : 3,
+                        "DelayTime"     : 0.0,
+                        "UseRandom"     : false,
+                        "RandomSoundList" : [
+                        ]
+                    }
+                }
+            ],
+            "Interrupts"    : [
+            ],
+            "AttackDefs"    : [
+                {
+                    "TrackName" : "Attack 0",
+                    "TrackIndex" : 0,
+                    "TriggerType" : "Signal",
+                    "TriggerTime" : 533,
+                    "Duration"    : 0,
+                    "EventType"   : "EET_AttackDef",
+                    "EventData"   : {
+                        "Delay" : 0.0,
+                        "DeadActionChanged" : false,
+                        "AttackHitType"     : "EAHT_Normal",
+                        "EmitType"          : "EET_Normal",
+                        "EmitProperty"      : {
+                            "Num" : 1,
+                            "Interval" : 0.0,
+                            "Type"     : "EET_Interval",
+                            "PosType"  : "EEPT_AttackerCurrentPosAndTargetDir",
+                            "Dummy"    : "",
+                            "EmitOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            },
+                            "EmitRotation" : {
+                                "x" : 0.0,
+                                "y" : 0.0,
+                                "z" : 0.0
+                            }
+                        },
+                        "EntityType"        : "EET_FrameFan",
+                        "EntityProperty"    : {
+                            "Effect" : "",
+                            "Sound"  : "",
+                            "SoundCount" : 1,
+                            "Delay"      : 0.0,
+                            "Radius"     : 4.0,
+                            "Height"     : 4.0,
+                            "Degree"     : 90.0
+                        },
+                        "MotionAnimatorType" : "EMAT_None",
+                        "MotionAnimatorProperty" : {
+                        },
+                        "FeedbackList"           : [
+                            {
+                                "FeedbackType" : "EHT_HitAction",
+                                "HitList"      : [
+                                    {
+                                        "ActionID" : "normalHit",
+                                        "Weight"   : 50
+                                    }
+                                ]
+                            },
+                            {
+                                "FeedbackType" : "EHT_HitSound",
+                                "Sound"        : "CLineActionEditor/Prefabs/Audio/hit/hit_punch_1001",
+                                "SoundCount"   : 1,
+                                "SoundCritical" : "",
+                                "SoundCriticalCount" : 1,
+                                "SoundBlock"         : "",
+                                "SoundBlockCount"    : 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
