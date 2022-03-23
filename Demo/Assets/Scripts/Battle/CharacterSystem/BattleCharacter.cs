@@ -13,7 +13,6 @@ namespace Battle
         public bool showGizmose;
         [SerializeField] public CharacterData data;
         [HideInInspector] public BattleGamePlay battle;
-        [HideInInspector] public bool attackTriggered;
         [HideInInspector] public bool isIronBody;
         [HideInInspector] public int ComboIndex;
         [HideInInspector] public bool bHitBack;
@@ -29,21 +28,11 @@ namespace Battle
         private Cinemachine.CinemachineImpulseSource MyInpulse;
         private CharacterDebugGizmos debugGizmos;
         private bool isDead;
-        private bool isIdle;
-        private bool forceStoped;
-        private bool braking;
-
-        public bool Braking { get; set; }
-        public bool ForceStoped
-        {
-            get => forceStoped;
-            set => forceStoped = value;
-        }
-        public bool IsIdle
-        {
-            get => isIdle;
-            set => isIdle = value;
-        }
+        
+        public bool AttackTriggered { get; set; }
+        public bool InputTrigger { get; set; }
+        public bool ForceStoped { get; set; }
+        public bool IsIdle{ get; set; }
         public Vector3 StandPos
         {
             get => team.memberPoses[StandIndex];
@@ -175,7 +164,7 @@ namespace Battle
             }
 
 
-            attackTriggered = false;
+            AttackTriggered = false;
 
             BattleCharacter character = attacker.GetComponent<BattleCharacter>();
             float damageValue = CalDamage(character);

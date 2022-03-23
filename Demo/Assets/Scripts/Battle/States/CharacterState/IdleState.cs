@@ -9,14 +9,20 @@ namespace Battle.States
         private float rangeTime;
         
         public override void EnterState()
-        {
+        {            
+            base.EnterState();
+
             enterTm = Time.time;
             fsm.target.IsIdle = true;
             Random.InitState((int) (fsm.target.data.id * Time.time));
             rangeTime = enterTm + Random.Range(fsm.target.WanderTime.x * 100,fsm.target.WanderTime.y * 100)/100;
-            fsm.target.animator.CrossFade("idle",0.5f,0);
+            fsm.target.animator.CrossFade("idle",0.2f,0);
             fsm.target.hud.SetHUDVisible(true);
-            base.EnterState();
+            fsm.target.SetDestination(fsm.target.StandPos);
+            if (fsm.target.name.StartsWith("character2"))
+            {
+                Debug.Log("fffffffffffffffffffff");
+            }
         }
 
         public override void ExitState()
@@ -27,8 +33,11 @@ namespace Battle.States
         public override void UpdateState()
         {
             base.UpdateState();
-            
-            fsm.target.SetDestination(fsm.target.StandPos);
+
+            if (fsm.target.InputTrigger)
+            {
+                fsm.target.SetDestination(fsm.target.StandPos);
+            }
             bool onDest = fsm.target.agent.destination == fsm.target.StandPos;
             bool inDist = fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance;
             bool hasSpeed = fsm.target.agent.speed > 0;

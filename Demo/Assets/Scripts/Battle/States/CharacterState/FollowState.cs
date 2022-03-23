@@ -9,11 +9,13 @@ namespace Battle.States
         private static readonly int NavSpeedHash = Animator.StringToHash("navSpeed");
         private float curSpeed;
         private float offset;
+        private bool isReached;
         
         public override void EnterState()
         {
             offset = 0;
             curSpeed = 0;
+            isReached = false;
             var character = fsm.target;
             
             character.IsIdle = true;
@@ -41,20 +43,25 @@ namespace Battle.States
             }
             
             CheckOvershooting();
-            
-            if (fsm.target.Braking)
-            {
-                Braking();
-            }
-            else
+
+            if (fsm.target.InputTrigger)
             {
                 SpeedUp();
             }
 
-            fsm.target.SetDestination(fsm.target.StandPos);
-            if (fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance)
+            if (!isReached)
             {
-                StopNav();
+                fsm.target.SetDestination(fsm.target.StandPos);
+            }
+            
+            if (!fsm.target.InputTrigger && isReached)
+            {
+                Braking();
+            }
+            
+            if (!isReached && fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance)
+            {
+                isReached = true;
             }
 
             ChangeAnimation();
@@ -89,6 +96,7 @@ namespace Battle.States
         private void StopNav()
         {
             fsm.target.agent.isStopped = true;
+            fsm.target.agent.velocity = Vector3.zero;
             fsm.target.agent.ResetPath();
             fsm.ChangeState<IdleState>();
         }
@@ -99,6 +107,9 @@ namespace Battle.States
             {
                 return;
             }
+
+            fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
+                * fsm.target.agent.speed) ;
             
             fsm.target.agent.speed -= fsm.target.data.brakeSpeed * Time.deltaTime;
             if (fsm.target.agent.speed <= 0)

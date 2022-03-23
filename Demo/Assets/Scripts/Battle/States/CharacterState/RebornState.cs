@@ -6,7 +6,7 @@ namespace Battle.States
     {
         public override void EnterState()
         {
-            fsm.target.animator.CrossFade("reborn",0.05f,0);
+            fsm.target.animator.CrossFade("reborn",0.1f,0);
             fsm.target.hud.SetHUDVisible(true);
         }
 

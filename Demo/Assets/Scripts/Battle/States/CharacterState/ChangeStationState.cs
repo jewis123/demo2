@@ -20,7 +20,7 @@ namespace Battle.States
             
             if (!fsm.target.IsDead)
             {
-                fsm.target.animator.CrossFade("running",0.05f,0);
+                fsm.target.animator.CrossFade("running",0.1f,0);
             }
 
             fsm.target.SetDestination(targetPos);

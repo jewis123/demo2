@@ -11,7 +11,7 @@ namespace Battle.States.SubSkillState
         public override void EnterState()
         {
             // fsm.target.animator.SetFloat(SpeedHash,fsm.target.battle.battleSpeed);
-            fsm.target.animator.CrossFade("afterSkill",0.05f,0);
+            fsm.target.animator.CrossFade("afterSkill",0.1f,0);
             fsm.target.isIronBody = true;
             time =  0;
         }

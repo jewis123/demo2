@@ -11,7 +11,7 @@ namespace Battle.States
             isChecked = false;
             fsm.target.IsIdle = true;
             // fsm.target.animator.SetFloat(SpeedHash,fsm.target.battle.battleSpeed);
-            fsm.target.animator.CrossFade("dying",0.05f,0);
+            fsm.target.animator.CrossFade("dying",0.5f,0);
             fsm.target.transform.localPosition = Vector3.zero; //兼容临时动画结束后动作没回到原点问题
             fsm.target.battleActionQueue.DequeueChangeStation();  //兼容走位途中死亡的情况
             fsm.target.hud.ChangeActionBar(0);

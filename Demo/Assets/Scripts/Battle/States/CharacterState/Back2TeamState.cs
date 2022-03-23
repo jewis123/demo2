@@ -8,7 +8,7 @@ namespace Battle.States
         public override void EnterState()
         {
             // fsm.target.animator.SetFloat(SpeedHash,fsm.target.battle.battleSpeed);
-            fsm.target.animator.CrossFade("running",0,0);
+            fsm.target.animator.CrossFade("running",0.1f,0);
         }
 
         public override void ExitState()

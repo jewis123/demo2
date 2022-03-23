@@ -9,7 +9,7 @@ namespace Battle.States.SubSkillState
         {
             time =  0;
             
-            fsm.target.attackTriggered = false;
+            fsm.target.AttackTriggered = false;
 
             fsm.target.animator.CrossFade("idle",0,0);
         }
@@ -36,11 +36,11 @@ namespace Battle.States.SubSkillState
                 time += Time.deltaTime;
             }
              
-            if (fsm.target.attackTriggered)
+            if (fsm.target.AttackTriggered)
             {
                 if (fsm.target.EnergyCount() > 0)
                 {
-                    fsm.target.attackTriggered = false;
+                    fsm.target.AttackTriggered = false;
                     EnQueueCmd();
                 }
             }

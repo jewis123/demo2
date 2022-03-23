@@ -25,7 +25,7 @@ namespace Battle
                 {
                     if (gamePlay.characterList[i].EnergyCount() > 0)
                     {
-                        gamePlay.characterList[i].attackTriggered = true;
+                        gamePlay.characterList[i].AttackTriggered = true;
                     }
                     return;
                 }

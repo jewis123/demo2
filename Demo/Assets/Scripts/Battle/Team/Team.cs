@@ -344,10 +344,9 @@ namespace Battle
 
             UpdateTeamCenter();
             
-            ActiveMembers();
-            
             UpdateTeamPoses();
-
+            
+            ActiveMembers();
         }
 
         private void UpdateTeamCenter()
@@ -437,7 +436,7 @@ namespace Battle
         {
             for (int i = 0; i < Characters.Count; i++)
             {
-                Characters[i].Braking = true;
+                Characters[i].InputTrigger = false;
             }
         }
 
@@ -446,7 +445,7 @@ namespace Battle
             for (int i = 0; i < Characters.Count; i++)
             {
                 Characters[i].ForceStoped = false;
-                Characters[i].Braking = false;
+                Characters[i].InputTrigger = true;
             }
         }
 

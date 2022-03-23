@@ -1797,7 +1797,8 @@ Animator:
     'Hair_Root'\n\tTransform 'HeadEnd_M'\n\tTransform 'Eye1_R'\n\tTransform 'Hair_Root'\n\tTransform
     'HeadEnd_M'\n\tTransform 'Jaw_M'\n\tTransform 'Eye1_R'\n\tand more ...\n\tFrom
     animation clip 'Atk3'\n\tFrom animation clip 'Atk1'\n\tFrom animation clip 'Damage'\n\tFrom
-    animation clip 'Atk2'\n\tFrom animation clip 'IdleE'\n\tFrom animation clip 'Run'"
+    animation clip 'Atk2'\n\tFrom animation clip 'IdleE'\n\tFrom animation clip 'Run'\n\tFrom
+    animation clip 'Run'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -1884,7 +1885,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8781177852135897315}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 2
   avoidancePriority: 50
