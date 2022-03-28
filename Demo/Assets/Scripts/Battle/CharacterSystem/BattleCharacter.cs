@@ -30,7 +30,6 @@ namespace Battle
         private bool isDead;
         
         public bool AttackTriggered { get; set; }
-        public bool InputTrigger { get; set; }
         public bool ForceStoped { get; set; }
         public bool IsIdle{ get; set; }
         public Vector3 StandPos

@@ -12,8 +12,7 @@ namespace Battle
         public int curTeamCnt;
         public BattleGamePlay battle;
         public Dictionary<int, Team> EnermyTeams = new Dictionary<int, Team>();
-        private CameraTeamLook teamCameraLook;
-        private CameraController camController;
+
         private Team myTeam;
 
 
@@ -22,42 +21,18 @@ namespace Battle
             this.battle = battle;
         }
         
-        public Team CreateTeam(Vector3 teamPos, int cnt, float radius, float teamSpeed,float rotateSpeed,  bool isMyTeam, CharacterTeamPosConfig config=null ,float offsetRadius =0)
+        public Team CreateTeam(Vector3 teamPos, int cnt, bool isMyTeam)
         {
             curTeamCnt++;
-            Team newTeam = new Team(teamPos,cnt,radius, teamSpeed, rotateSpeed, isMyTeam, curTeamCnt, battle,offsetRadius);
-            newTeam.InitTeamPos(isMyTeam, config);
+            Team newTeam = new Team(teamPos,cnt, isMyTeam, curTeamCnt, battle);
+
             if (!isMyTeam)
             {
                 EnermyTeams.Add(curTeamCnt, newTeam);
             }
-            
-            if (isMyTeam)
+            else
             {
-
                 myTeam = newTeam;
-                var teamCamera = GameObject.Find("TeamCamera");
-                if (teamCamera != null)
-                {
-                    teamCameraLook = teamCamera.GetComponent<CameraTeamLook>();
-                    camController = teamCamera.GetComponent<CameraController>();
-                    teamCamera.GetComponent<CinemachineVirtualCamera>().Follow = newTeam.TargetGroup.transform;
-                }
-                else
-                {
-                    Debug.Log("缺少队伍相机");
-                    // 手动创建过程省略。 。。 
-                }
-
-                if (teamCameraLook != null)
-                {
-                    teamCameraLook.lookTarget = newTeam.TargetGroup.transform;
-                }
-
-                if (camController!= null)
-                {
-                    camController.target = newTeam.TargetGroup.transform;
-                }
             }
             
             return newTeam;

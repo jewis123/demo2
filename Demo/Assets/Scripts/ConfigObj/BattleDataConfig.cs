@@ -8,13 +8,16 @@ namespace Battle.Config
         public int id;
         public float myTeamRadius;
         public float myTeamMoveSpeed;
-        [Range(0,1)]
         public float myTeamRotateSpeed;
         [Range(0, 5)]
         public float teamPosOffsetRadius;
 
+        [Tooltip("x-y之间取一个随机数时间，开始游走")]
         public Vector2 startWanderTime;
-
+        
+        [Tooltip("成员落后多远开始追赶队伍")]
+        public float teamDistance;
+        
         public CharacterData[] characterData;
                 
         public TeamData[] enermyTeamData;

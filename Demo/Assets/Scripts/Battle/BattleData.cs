@@ -26,6 +26,10 @@ namespace Battle
         [Tooltip("待机游走半径")]
         public float wanderRadius;
 
+        public float brakeDistance;
+
+        public float lagtime;
+
         public bool moveable;
         
         [SerializeField] public CharacterAttribute attribute;

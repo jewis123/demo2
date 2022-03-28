@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Battle.Config;
 using Cinemachine;
 using SuperCLine.ActionEngine;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Battle
@@ -11,7 +13,8 @@ namespace Battle
     public class Team
     {
         private bool isMyTeam;
-        private float moveSpeed;
+        private float teamSpeed;
+        private float backwardDistance;
         private float offsetRadius;
         private float rotateSpeed;
         private Vector3 centerPos;
@@ -35,10 +38,26 @@ namespace Battle
         private GameObject Pointer;
         private GameObject Effect;
         private GameObject FollowPoint;
+        private CameraTeamLook teamCameraLook;
+        private CameraController camController;
         private int deadCnt;
         private bool moving;
+        private Quaternion teamRotation;
+        private bool inited = false;
 
-        public Quaternion teamRotation;
+        public Quaternion TeamRotation
+        {
+            get => teamRotation;
+            set
+            {
+                teamRotation = value;
+                if (Pointer != null)
+                {
+                    Pointer.transform.rotation = teamRotation;
+                }
+            }
+        }
+
         public Vector3[] memberPoses;
         public BattleGamePlay battle;
         public List<BattleCharacter> Characters = new List<BattleCharacter>();
@@ -52,7 +71,12 @@ namespace Battle
         {
             get => isMyTeam;
         }
-
+        public float TeamSpeed => teamSpeed;
+        public bool InputTrigger
+        {
+            get { return curVelocity != Vector3.zero; }
+        }
+        public float BackwardDistance => backwardDistance;
         public int DeadCnt
         {
             get => deadCnt;
@@ -62,13 +86,11 @@ namespace Battle
             }
 
         }
-
         public int MemberCnt
         {
             get => _memberCnt;
             set => _memberCnt = value;
         }
-
         public Vector3 TeamPos
         {
             get => centerPos;
@@ -82,36 +104,43 @@ namespace Battle
             }
         }
         
-        public Vector2 Velocity
-        {
-            get => curVelocity;
-        }
-        
-        public Team(Vector3 teamPos, int teamCnt, float radius, float speed,float rotateSpeed, bool isMyTeam, int idx, BattleGamePlay battle,float offsetRadius=0)
+        public Team(Vector3 teamPos, int teamCnt, bool isMyTeam, int idx, BattleGamePlay battle)
         {
 
-            this.offsetRadius = offsetRadius;
             this.battle = battle;
-            this.rotateSpeed = rotateSpeed;
             centerPos = teamPos;
             _memberCnt = teamCnt;
-            teamRadius = radius;
             teamIdx = idx;
-            moveSpeed = speed;
             this.isMyTeam = isMyTeam;
         }
 
-        public void InitTeamPos(bool withLineup, CharacterTeamPosConfig config)
+        public void InitMyTeamProps()
+        {
+            backwardDistance = battle.battleData.teamDistance;
+            offsetRadius = battle.battleData.teamPosOffsetRadius;
+            teamRadius = battle.battleData.myTeamRadius;
+            teamSpeed = battle.battleData.myTeamMoveSpeed;
+            rotateSpeed = battle.battleData.myTeamRotateSpeed;
+            
+            InitTeamPos(true);
+            SetCenterEffectParent();
+        }
+
+        public void InitEnemryTeamProps(float dataRadis, float dataSpeed, float dataRatateSpeed)
+        {
+            teamRadius = dataRadis;
+            teamSpeed = dataSpeed;
+            rotateSpeed = dataRatateSpeed;
+            
+            InitTeamPos(false);
+        }
+
+        private void InitTeamPos(bool withLineup)
         {
             teamHolder = new GameObject($"TeamCenter_{teamIdx}");
             teamHolder.transform.position = centerPos;
-            
-            if (_targetGroup == null && isMyTeam)
-            {
-                FollowPoint = new GameObject("FollowPoint");
-                _targetGroup = FollowPoint.AddComponent<CinemachineTargetGroup>();
-            }
-            
+            TeamRotation = Quaternion.Euler(new Vector3(0,90,0));
+
             teamCenterObj = new GameObject($"MoveableTeamCenter_{teamIdx}");
             teamCenterObj.transform.position = centerPos;
 
@@ -140,14 +169,53 @@ namespace Battle
 
             if (withLineup)
             {
-                gapSize = config.gapSize;
-                colCount = config.colCount;
-                lineup = config.characters;
+                gapSize = battle.config.gapSize;
+                colCount = battle.config.colCount;
+                lineup = battle.config.characters;
                 WithLineup(gapSize, colCount);
             }
             else
             {
                 Withoutlineup();
+            }
+            
+            inited = true;
+            InitFollowCam();
+        }
+
+        private void InitFollowCam()
+        {
+            if (isMyTeam)
+            {
+                if (_targetGroup == null)
+                {
+                    FollowPoint = new GameObject("FollowPoint");
+                    _targetGroup = FollowPoint.AddComponent<CinemachineTargetGroup>();
+                }
+                
+                
+                var teamCamera = GameObject.Find("TeamCamera");
+                if (teamCamera != null)
+                {
+                    teamCameraLook = teamCamera.GetComponent<CameraTeamLook>();
+                    camController = teamCamera.GetComponent<CameraController>();
+                    teamCamera.GetComponent<CinemachineVirtualCamera>().Follow = TargetGroup.transform;
+                }
+                else
+                {
+                    Debug.Log("缺少队伍相机");
+                    // 手动创建过程省略。 。。 
+                }
+
+                if (teamCameraLook != null)
+                {
+                    teamCameraLook.lookTarget = TargetGroup.transform;
+                }
+
+                if (camController!= null)
+                {
+                    camController.target = TargetGroup.transform;
+                }
             }
         }
 
@@ -197,6 +265,12 @@ namespace Battle
             {
                 var offset = new Vector3((i % colCount) - midIdx, 0, Mathf.Floor(i / colCount) - midIdx) * (2*gapSize);
                 var teamPos = centerPos + offset;
+                // if (battle.useRoatateSpeed)
+                // {
+                //     float rotateX = teamPos.x * Mathf.Cos(curRotation) - teamPos.y * Mathf.Sin(curRotation);
+                //     float rotateZ = teamPos.x * Mathf.Sin(curRotation) + teamPos.y * Mathf.Cos(curRotation);
+                //     teamPos = new Vector3(rotateX, 0, rotateZ);
+                // }
 
                 memberPosObj[i].transform.position = teamPos;
                 memberPoses[i] = teamPos;
@@ -237,6 +311,10 @@ namespace Battle
 
         public void SetCenterEffectParent()
         {
+            if (!inited)
+            {
+                return;
+            }
             GameObject parent;
             if (battle.useTeamCenterMove)
             {
@@ -308,10 +386,18 @@ namespace Battle
                 return;
             }
             
-            lastInputDir = new Vector3(moveInput.x, 0.0f, moveInput.y).normalized;
+            
+            Vector3 newInputDir = new Vector3(moveInput.x, 0.0f, moveInput.y);
+            float angle = Vector3.Angle(newInputDir, lastInputDir);
+            if (angle > 160)
+            {
+                ReverseTeamPoses();
+            }
+            
+            lastInputDir = newInputDir.normalized;
             var newRotation = Mathf.Atan2(lastInputDir.x, lastInputDir.z)* Mathf.Rad2Deg ;
             curRotation = newRotation;
-            curVelocity = lastInputDir * moveSpeed * Time.deltaTime * moveInput.magnitude;
+            curVelocity = lastInputDir * teamSpeed * Time.deltaTime * moveInput.magnitude;
 
             for (int i = 0; i < Characters.Count; i++)
             {
@@ -323,6 +409,11 @@ namespace Battle
 
         public void Update()
         {
+            if (!inited)
+            {
+                return;
+            }
+            
             DrawDebugGizmos();
 
             if (curVelocity == Vector3.zero)
@@ -337,31 +428,53 @@ namespace Battle
                     RamdomOffsetStopPos();
                     moving = false;
                 }
-
-                BrakingAll();
+                
                 return;
             }
-
-            UpdateTeamCenter();
             
+            UpdateTeam();
+
             UpdateTeamPoses();
             
             ActiveMembers();
         }
 
-        private void UpdateTeamCenter()
+        private void ReverseTeamPoses()
+        {
+            if (!isMyTeam)
+            {
+                return;
+            }
+            var rowCnt = (int)Mathf.Ceil(memberPosObj.Length / colCount);
+            for (int i = 0; i < rowCnt; i++)
+            {
+                for (int j = 0; j < colCount; j++)
+                {
+                    var temp = memberPosObj[i*colCount + j].transform.position;
+                    memberPosObj[i * colCount + j].transform.position = memberPosObj[(rowCnt - 1 - i) * colCount + j].transform.position;
+                    memberPosObj[(rowCnt - 1 - i) * colCount + j].transform.position = temp;
+                }
+            }
+        }
+
+        private void UpdateTeam()
         {
             if (battle.useRoatateSpeed)
             {
-                teamCenterObj.transform.rotation = Quaternion.RotateTowards(teamCenterObj.transform.rotation, Quaternion.Euler(0.0f, curRotation, 0.0f), rotateSpeed);
+                TeamRotation = Quaternion.RotateTowards(TeamRotation, 
+                    Quaternion.Euler(0.0f, curRotation, 0.0f), rotateSpeed);
             }
             else
             {
-                teamCenterObj.transform.rotation = Quaternion.Euler(0.0f, curRotation, 0.0f);
+                TeamRotation = Quaternion.Euler(0.0f, curRotation, 0.0f);
             }
-            teamCenterObj.transform.position = Vector3.MoveTowards(teamCenterObj.transform.position, teamCenterObj.transform.position + curVelocity, Time.deltaTime * moveSpeed);
-            centerPos = teamCenterObj.transform.position;
-            teamRotation = teamCenterObj.transform.rotation;
+
+            var position = teamCenterObj.transform.position;
+            centerPos = Vector3.MoveTowards(position, 
+                position + curVelocity, Time.deltaTime * teamSpeed);
+            
+            position = centerPos;
+            teamCenterObj.transform.position = position;
         }
 
         private void UpdateTeamPoses()
@@ -382,6 +495,11 @@ namespace Battle
 
         private void DrawDebugGizmos()
         {
+            if (!isMyTeam)
+            {
+                return;
+            }
+            
             UDrawTool tool;
             for (int i = 0; i < memberPosObj.Length; i++)
             {
@@ -432,20 +550,11 @@ namespace Battle
             }
         }
 
-        private void BrakingAll()
-        {
-            for (int i = 0; i < Characters.Count; i++)
-            {
-                Characters[i].InputTrigger = false;
-            }
-        }
-
         private void ActiveMembers()
         {
             for (int i = 0; i < Characters.Count; i++)
             {
                 Characters[i].ForceStoped = false;
-                Characters[i].InputTrigger = true;
             }
         }
 
@@ -459,6 +568,23 @@ namespace Battle
             {
                 ActiveMembers();
             }
+        }
+
+        public int GetTeamIdxByID(int id)
+        {
+            if (!isMyTeam)
+            {
+                return -1;
+            }
+            for (int i = 0; i < lineup.Count; i++)
+            {
+                if (lineup[i] == id)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 }

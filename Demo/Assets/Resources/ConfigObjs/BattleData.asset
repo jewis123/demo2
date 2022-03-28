@@ -14,22 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   myTeamRadius: 5
-  myTeamMoveSpeed: 7
-  myTeamRotateSpeed: 0.484
+  myTeamMoveSpeed: 5
+  myTeamRotateSpeed: 0.908
   teamPosOffsetRadius: 1
   startWanderTime: {x: 3, y: 10}
+  teamDistance: 0
   characterData:
   - id: 1
     team: 0
     HP: 1000
     AP: 3
-    speed: 5
+    speed: 9
     accelerateSpeed: 4
-    brakeSpeed: 2
+    brakeSpeed: 8
     attackRadius: 4
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1.5
+    wanderRadius: 1
+    brakeDistance: 1
+    lagtime: 0.5
     moveable: 1
     attribute:
       damage: 200
@@ -65,13 +68,15 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 5
+    speed: 7
     accelerateSpeed: 2
-    brakeSpeed: 3.78
+    brakeSpeed: 8
     attackRadius: 5
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1.5
+    wanderRadius: 1
+    brakeDistance: 1
+    lagtime: 1
     moveable: 1
     attribute:
       damage: 200
@@ -107,13 +112,15 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 5
+    speed: 10
     accelerateSpeed: 4
-    brakeSpeed: 3
+    brakeSpeed: 8
     attackRadius: 300
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1.5
+    wanderRadius: 1
+    brakeDistance: 1
+    lagtime: 0.5
     moveable: 0
     attribute:
       damage: 200
@@ -149,13 +156,15 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 5
+    speed: 12
     accelerateSpeed: 7
-    brakeSpeed: 1.5
+    brakeSpeed: 8
     attackRadius: 50
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1.5
+    wanderRadius: 1
+    brakeDistance: 1
+    lagtime: 0
     moveable: 0
     attribute:
       damage: 200
@@ -201,6 +210,8 @@ MonoBehaviour:
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
+      brakeDistance: 0
+      lagtime: 0
       moveable: 1
       attribute:
         damage: 200
@@ -240,6 +251,8 @@ MonoBehaviour:
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
+      brakeDistance: 0
+      lagtime: 0
       moveable: 1
       attribute:
         damage: 200
@@ -279,6 +292,8 @@ MonoBehaviour:
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
+      brakeDistance: 0
+      lagtime: 0
       moveable: 1
       attribute:
         damage: 200

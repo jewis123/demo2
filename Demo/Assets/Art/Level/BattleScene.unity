@@ -1755,7 +1755,7 @@ PrefabInstance:
     - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
       propertyPath: config
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: a32892d94c909ae4094394e6ee9c33f6, type: 2}
     - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
       propertyPath: battleData
       value: 
@@ -1766,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
       propertyPath: useRoatateSpeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
       propertyPath: config.Array.size

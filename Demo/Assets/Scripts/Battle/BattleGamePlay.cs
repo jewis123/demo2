@@ -11,12 +11,10 @@ namespace Battle
     [RequireComponent(typeof(InputHandler))]
     public class BattleGamePlay : MonoBehaviour
     {
-        [SerializeField]
-        private BattleDataConfig battleData;
-
-        [SerializeField] private CharacterTeamPosConfig config;
-
         public TeamManager teamManager;
+
+        [SerializeField]public BattleDataConfig battleData;
+        [SerializeField] public CharacterTeamPosConfig config;
         [HideInInspector]public InputHandler Input;
 
         public Dictionary<int, BattleCharacter> characters { get; private set; }
@@ -181,22 +179,25 @@ namespace Battle
 
             //加入配置角色
             Team team;
-            team = teamManager.CreateTeam(Vector3.zero, config.characters.Count,battleData.myTeamRadius, 
-                battleData.myTeamMoveSpeed,battleData.myTeamRotateSpeed, true, config,battleData.teamPosOffsetRadius);
+            team = teamManager.CreateTeam(Vector3.zero, config.characters.Count, true );
+            team.InitMyTeamProps();
             team.SetParent(characterRoot.transform);
             
             
             for ( int i = 0; i < battleData.characterData.Length; i++)
             {
-                LoadCharacter( i, team,battleData.characterData[i]);
+                var Char = battleData.characterData[i];
+                int teamIdx = team.GetTeamIdxByID(Char.id);
+                LoadCharacter( teamIdx, team, Char);
             }
 
+            //创建怪物
             TeamData teamData;
             for (int i = 0; i < battleData.enermyTeamData.Length; i++)
             {
                 teamData = battleData.enermyTeamData[i];
-                team = teamManager.CreateTeam(teamData.teamPositions, teamData.charaters.Length, 
-                    teamData.teamRadius, teamData.moveSpeed,teamData.teamRotateSpeed, false);
+                team = teamManager.CreateTeam(teamData.teamPositions, teamData.charaters.Length, false);
+                team.InitEnemryTeamProps(teamData.teamRadius, teamData.moveSpeed, teamData.teamRotateSpeed);
                 team.SetParent(characterRoot.transform);
 
                 for (int j = 0; j < teamData.charaters.Length; j++)
@@ -234,6 +235,7 @@ namespace Battle
             character.StandIndex = teamIdx;
             character.inited = true;
             character.WanderTime = battleData.startWanderTime;
+            character.transform.position = character.StandPos;
             
             characters.Add(data.id, character);
             characterList.Add(character);

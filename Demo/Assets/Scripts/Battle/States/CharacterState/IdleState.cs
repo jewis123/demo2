@@ -16,13 +16,13 @@ namespace Battle.States
             fsm.target.IsIdle = true;
             Random.InitState((int) (fsm.target.data.id * Time.time));
             rangeTime = enterTm + Random.Range(fsm.target.WanderTime.x * 100,fsm.target.WanderTime.y * 100)/100;
+            
             fsm.target.animator.CrossFade("idle",0.2f,0);
             fsm.target.hud.SetHUDVisible(true);
             fsm.target.SetDestination(fsm.target.StandPos);
-            if (fsm.target.name.StartsWith("character2"))
-            {
-                Debug.Log("fffffffffffffffffffff");
-            }
+            fsm.target.agent.speed = 0;
+            fsm.target.transform.rotation = fsm.target.team.TeamRotation;
+            
         }
 
         public override void ExitState()
@@ -34,7 +34,7 @@ namespace Battle.States
         {
             base.UpdateState();
 
-            if (fsm.target.InputTrigger)
+            if (fsm.target.team.InputTrigger)
             {
                 fsm.target.SetDestination(fsm.target.StandPos);
             }
