@@ -419,8 +419,11 @@ namespace Battle
             {
                 return;
             }
-            
-            DrawDebugGizmos();
+
+            if (battle.drawTeamGizmose)
+            {
+                DrawDebugGizmos();
+            }
 
             if (curVelocity == Vector3.zero)
             {

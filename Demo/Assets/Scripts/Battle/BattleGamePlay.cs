@@ -32,6 +32,8 @@ namespace Battle
         [Tooltip("无输入立即停止")]
         public bool useImmdiateStop;
 
+        public bool drawTeamGizmose;
+
         // [Tooltip("使用后队变前队")]
         // public bool useAutoChangeLeader;
         private bool curCenterMode;
