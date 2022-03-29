@@ -1761,6 +1761,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: cd5fb3eddce1bb84e9e1330bd7b2edc6, type: 2}
     - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
+      propertyPath: drawTeamGizmose
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524385677417466835, guid: c91668c1989fed647bb223d403717e8f, type: 3}
       propertyPath: useImmdiateStop
       value: 0
       objectReference: {fileID: 0}

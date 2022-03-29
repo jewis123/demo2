@@ -15,8 +15,6 @@ namespace Battle
         public float speed;
         [Range(0,10f)]
         public float accelerateSpeed;
-        [Range(0,10f)]
-        public float brakeSpeed;
         [Tooltip("攻击范围")]
         public float attackRadius;
         [Tooltip("索敌范围")]
@@ -27,6 +25,13 @@ namespace Battle
         public float wanderRadius;
 
         public float brakeDistance;
+
+        public float slowDownDistance;
+
+        public float slowDownSpeed;
+
+        [Range(1,5)]
+        public float slowDownDeltaSpeed;
 
         public float lagtime;
 

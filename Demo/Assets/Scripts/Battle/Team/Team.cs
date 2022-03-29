@@ -122,6 +122,7 @@ namespace Battle
             rotateSpeed = battle.battleData.myTeamRotateSpeed;
             
             InitTeamPos(true);
+            SetCenterEffectParent(true);
         }
 
         public void InitEnemryTeamProps(float dataRadis, float dataSpeed, float dataRatateSpeed)
@@ -161,7 +162,6 @@ namespace Battle
                 Pointer = GameObject.Instantiate(prefab);
                 prefab = Resources.Load<GameObject>("Prefabs/MissonPoint");
                 Effect = GameObject.Instantiate(prefab);
-                SetCenterEffectParent(true);
             }
 
             if (withLineup)

@@ -8,20 +8,22 @@ namespace Battle.States
     {
         private static readonly int SpeedHash = Animator.StringToHash("speed");
         private static readonly int NavSpeedHash = Animator.StringToHash("navSpeed");
-        private float curSpeed;
+        private float brakeSpeed;
+        private float slowDownSpeed;
         private float offset;
         private bool isReached;
         private float enterTime;
+        private float slowDownTime;
         
         public override void EnterState()
         {
             base.EnterState();
             
             offset = 0;
-            curSpeed = 0;
+            brakeSpeed = slowDownSpeed = 0;
             isReached = false;
             var character = fsm.target;
-            enterTime = 0;
+            enterTime = slowDownTime = 0;
             
             character.IsIdle = true;
             // character.animator.SetFloat(SpeedHash,fsm.target.battle.battleSpeed);
@@ -49,13 +51,12 @@ namespace Battle.States
             
             CheckOvershooting();
             
-            fsm.target.SetDestination(fsm.target.StandPos);
-            
             if (fsm.target.team.IsMyTeam)
             {
                 bool backwardTeam = GetStandPosDistance() > fsm.target.team.BackwardDistance;
                 if (fsm.target.team.InputTrigger || backwardTeam)
                 {
+                    fsm.target.SetDestination(fsm.target.StandPos);
                     // SpeedUp1();
                     SpeedUp2();
                 }
@@ -65,27 +66,31 @@ namespace Battle.States
                     BrakeInstancely();
                 }
             }
+            else
+            {
+                fsm.target.SetDestination(fsm.target.StandPos);
+            }
 
             ChangeAnimation();
         }
 
-        private void BrakeAfterReach()
-        {
-            if (!isReached)
-            {
-                fsm.target.SetDestination(fsm.target.StandPos);
-            }
-            
-            if (isReached)
-            {
-                Braking();
-            }
-            
-            if (!isReached && fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance)
-            {
-                isReached = true;
-            }
-        }
+        // private void BrakeAfterReach()
+        // {
+        //     if (!isReached)
+        //     {
+        //         fsm.target.SetDestination(fsm.target.StandPos);
+        //     }
+        //     
+        //     if (isReached)
+        //     {
+        //         Braking();
+        //     }
+        //     
+        //     if (!isReached && fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance)
+        //     {
+        //         isReached = true;
+        //     }
+        // }
 
         private void BrakeInstancely()
         {
@@ -130,22 +135,22 @@ namespace Battle.States
             fsm.ChangeState<IdleState>();
         }
 
-        private void Braking()
-        {
-            if (!fsm.target.team.IsMyTeam)
-            {
-                return;
-            }
-
-            fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
-                * fsm.target.agent.speed) ;
-            
-            fsm.target.agent.speed -= fsm.target.data.brakeSpeed * Time.deltaTime;
-            if (fsm.target.agent.speed <= 0)
-            {
-                StopNav();
-            }
-        }
+        // private void Braking()
+        // {
+        //     if (!fsm.target.team.IsMyTeam)
+        //     {
+        //         return;
+        //     }
+        //
+        //     fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
+        //         * fsm.target.agent.speed) ;
+        //     
+        //     fsm.target.agent.speed -= fsm.target.data.brakeSpeed * Time.deltaTime;
+        //     if (fsm.target.agent.speed <= 0)
+        //     {
+        //         StopNav();
+        //     }
+        // }
         
         private void BrakeWithRatio()
         {
@@ -153,18 +158,55 @@ namespace Battle.States
             {
                 return;
             }
-            
+
             float distance = GetStandPosDistance();
-            if ( distance < fsm.target.data.brakeDistance) ;
+            
+            if ( distance < fsm.target.data.brakeDistance)
             {
+                if (brakeSpeed == 0)
+                {
+                    brakeSpeed = fsm.target.agent.speed;
+                }
                 float ratio = distance / fsm.target.data.brakeDistance;
-                fsm.target.agent.speed = ratio * fsm.target.agent.speed;
+                float newSpeed = ratio * brakeSpeed;
+
+                if (newSpeed < fsm.target.agent.speed)
+                {
+                    if (distance < fsm.target.data.slowDownDistance)
+                    {
+                        if (slowDownTime == 0)
+                        {
+                            slowDownTime = Time.time;
+                        }
+
+                        if (slowDownSpeed == 0)
+                        {
+                            slowDownSpeed = fsm.target.agent.speed;
+                        }
+
+                        float percent = fsm.target.data.slowDownDeltaSpeed * (Time.time - slowDownTime);
+                        newSpeed = Mathf.Lerp(slowDownSpeed, fsm.target.data.slowDownSpeed, percent);
+                    }
+
+                    fsm.target.agent.speed = newSpeed;
+                
+                    fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
+                        * fsm.target.agent.speed) ;
+                }else
+                {
+                    fsm.target.SetDestination(fsm.target.StandPos);
+                }
+            }else
+            {
+                fsm.target.SetDestination(fsm.target.StandPos);
             }
             
-            if (fsm.target.agent.speed <= 0)
-            {
-                StopNav();
-            }
+            // if (fsm.target.agent.speed <= .05f)
+            // {
+            //     StopNav();
+            // }
+            
+            CheckDistanceStop();
         }
         
         /// <summary>
@@ -176,6 +218,7 @@ namespace Battle.States
             {
                 return;
             }
+            
 
             fsm.target.agent.speed += fsm.target.data.accelerateSpeed * Time.deltaTime;
             

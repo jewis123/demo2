@@ -71,11 +71,11 @@ namespace Battle
         {
             fsm?.UpdateState();
             teamManager?.Update();
-            if (curCenterMode != useTeamCenterMove)
-            {
-                curCenterMode = useTeamCenterMove;
-                teamManager?.GetMyTeam().SetCenterEffectParent();
-            }
+            // if (curCenterMode != useTeamCenterMove)
+            // {
+            //     curCenterMode = useTeamCenterMove;
+            //     teamManager?.GetMyTeam().SetCenterEffectParent();
+            // }
 
             if (curStopMode != useImmdiateStop)
             {
