@@ -122,7 +122,6 @@ namespace Battle
             rotateSpeed = battle.battleData.myTeamRotateSpeed;
             
             InitTeamPos(true);
-            SetCenterEffectParent();
         }
 
         public void InitEnemryTeamProps(float dataRadis, float dataSpeed, float dataRatateSpeed)
@@ -162,7 +161,7 @@ namespace Battle
                 Pointer = GameObject.Instantiate(prefab);
                 prefab = Resources.Load<GameObject>("Prefabs/MissonPoint");
                 Effect = GameObject.Instantiate(prefab);
-                SetCenterEffectParent();
+                SetCenterEffectParent(true);
             }
 
             if (withLineup)
@@ -310,7 +309,7 @@ namespace Battle
             teamHolder.transform.SetParent(parent);
         }
 
-        public void SetCenterEffectParent()
+        public void SetCenterEffectParent(bool setParent = false)
         {
             if (!inited)
             {
@@ -325,12 +324,18 @@ namespace Battle
             {
                 parent = memberPosObj[0];
             }
-            
-            Pointer.transform.SetParent(parent.transform);
+
+            if (setParent)
+            {
+                Pointer.transform.SetParent(parent.transform);
+            }
             Pointer.transform.localPosition = Vector3.zero;
             Pointer.transform.localScale = Vector3.one * 0.2f;
-            
-            Effect.transform.SetParent(parent.transform);
+
+            if (setParent)
+            {
+                Effect.transform.SetParent(parent.transform);
+            }
             Effect.transform.localPosition = Vector3.zero;
         }
 
@@ -557,9 +562,9 @@ namespace Battle
             }
         }
 
-        public void SetStopMode()
+        public void SetStopMode(bool mode)
         {
-            if (battle.useImmdiateStop)
+            if (mode)
             {
                 StopAllMember();
             }

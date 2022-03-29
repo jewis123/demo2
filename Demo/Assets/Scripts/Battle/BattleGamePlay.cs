@@ -78,7 +78,7 @@ namespace Battle
             if (curStopMode != useImmdiateStop)
             {
                 curStopMode = useImmdiateStop;
-                teamManager?.GetMyTeam().SetStopMode();
+                teamManager?.GetMyTeam().SetStopMode(curStopMode);
             }
         }
 
