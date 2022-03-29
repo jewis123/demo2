@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Battle.Config;
+﻿using System.Collections.Generic;
 using Cinemachine;
 using SuperCLine.ActionEngine;
 using UnityEngine;
@@ -26,7 +24,7 @@ namespace Battle
         private List<int> lineup;
 
         private Vector3 curVelocity;
-        private float curRotation;
+        private float curRotation = 90;
 
         private GameObject teamCenterObj;
         private CinemachineTargetGroup _targetGroup;
@@ -42,21 +40,22 @@ namespace Battle
         private CameraController camController;
         private int deadCnt;
         private bool moving;
-        private Quaternion teamRotation;
         private bool inited = false;
+        private float lastRotation;
+        private Quaternion teamRotation;
 
         public Quaternion TeamRotation
         {
             get => teamRotation;
-            set
+            private set
             {
+                lastRotation = teamRotation.eulerAngles.y;
                 teamRotation = value;
                 if (Pointer != null)
-                {
                     Pointer.transform.rotation = teamRotation;
-                }
             }
         }
+        
 
         public Vector3[] memberPoses;
         public BattleGamePlay battle;
@@ -139,7 +138,6 @@ namespace Battle
         {
             teamHolder = new GameObject($"TeamCenter_{teamIdx}");
             teamHolder.transform.position = centerPos;
-            TeamRotation = Quaternion.Euler(new Vector3(0,90,0));
 
             teamCenterObj = new GameObject($"MoveableTeamCenter_{teamIdx}");
             teamCenterObj.transform.position = centerPos;
@@ -180,6 +178,7 @@ namespace Battle
             }
             
             inited = true;
+            TeamRotation = Quaternion.Euler(0,90,0);
             InitFollowCam();
         }
 
@@ -265,12 +264,14 @@ namespace Battle
             {
                 var offset = new Vector3((i % colCount) - midIdx, 0, Mathf.Floor(i / colCount) - midIdx) * (2*gapSize);
                 var teamPos = centerPos + offset;
-                // if (battle.useRoatateSpeed)
-                // {
-                //     float rotateX = teamPos.x * Mathf.Cos(curRotation) - teamPos.y * Mathf.Sin(curRotation);
-                //     float rotateZ = teamPos.x * Mathf.Sin(curRotation) + teamPos.y * Mathf.Cos(curRotation);
-                //     teamPos = new Vector3(rotateX, 0, rotateZ);
-                // }
+                if (battle.useRoatateSpeed)
+                {
+                    float changeAngle = TeamRotation.eulerAngles.y - 90;
+                    float rad = Mathf.PI / 180 * changeAngle;
+                    float rotateX = offset.x * Mathf.Cos(-rad) - offset.z * Mathf.Sin(-rad);
+                    float rotateZ = offset.x * Mathf.Sin(-rad) + offset.z * Mathf.Cos(-rad);
+                    teamPos = new Vector3(rotateX + centerPos.x, 0, rotateZ + centerPos.z);
+                }
 
                 memberPosObj[i].transform.position = teamPos;
                 memberPoses[i] = teamPos;
@@ -461,20 +462,18 @@ namespace Battle
         {
             if (battle.useRoatateSpeed)
             {
-                TeamRotation = Quaternion.RotateTowards(TeamRotation, 
-                    Quaternion.Euler(0.0f, curRotation, 0.0f), rotateSpeed);
+                TeamRotation = Quaternion.RotateTowards(TeamRotation, Quaternion.Euler(0,curRotation, 0), rotateSpeed);
             }
             else
             {
-                TeamRotation = Quaternion.Euler(0.0f, curRotation, 0.0f);
+                TeamRotation = Quaternion.Euler(0,curRotation, 0);
             }
 
             var position = teamCenterObj.transform.position;
             centerPos = Vector3.MoveTowards(position, 
                 position + curVelocity, Time.deltaTime * teamSpeed);
             
-            position = centerPos;
-            teamCenterObj.transform.position = position;
+            teamCenterObj.transform.position = centerPos;
         }
 
         private void UpdateTeamPoses()

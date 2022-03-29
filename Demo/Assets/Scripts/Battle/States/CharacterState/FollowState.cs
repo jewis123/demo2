@@ -47,13 +47,12 @@ namespace Battle.States
                 return;
             }
             
-            fsm.target.SetDestination(fsm.target.StandPos);
-
             CheckOvershooting();
+            
+            fsm.target.SetDestination(fsm.target.StandPos);
             
             if (fsm.target.team.IsMyTeam)
             {
-
                 bool backwardTeam = GetStandPosDistance() > fsm.target.team.BackwardDistance;
                 if (fsm.target.team.InputTrigger || backwardTeam)
                 {
@@ -113,6 +112,7 @@ namespace Battle.States
             {
                 fsm.target.agent.updateRotation = false;
                 fsm.target.transform.forward = destDir;
+                fsm.target.agent.velocity = destDir.normalized;
                 fsm.target.agent.ResetPath();
                 fsm.target.agent.updateRotation = true;
             }
@@ -183,11 +183,9 @@ namespace Battle.States
             {
                 fsm.target.agent.speed = fsm.target.data.speed;
             }
-            
-            if (fsm.target.agent.remainingDistance <= fsm.target.agent.stoppingDistance)
-            {
-                StopNav();
-            }
+
+            CheckDistanceStop();
+
         }
 
         /// <summary>
@@ -226,8 +224,15 @@ namespace Battle.States
                     fsm.target.agent.speed = fsm.target.team.TeamSpeed;
             }
 
-            
-            if (fsm.target.agent.remainingDistance <= fsm.target.agent.stoppingDistance)
+            CheckDistanceStop();
+        }
+
+        private void CheckDistanceStop()
+        {
+            Vector2 StandPosV2 = new Vector2(fsm.target.StandPos.x, fsm.target.StandPos.z);
+            Vector2 NowPosV2 = new Vector2(fsm.target.transform.position.x, fsm.target.transform.position.z);
+            float distance = Vector2.Distance(NowPosV2,StandPosV2);
+            if (distance <= fsm.target.agent.stoppingDistance)
             {
                 StopNav();
             }
