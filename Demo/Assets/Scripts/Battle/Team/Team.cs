@@ -286,9 +286,14 @@ namespace Battle
                 if (hasAttention)
                 {
                     Vector3 curAttentionDir = attentionPos - teamCenterObj.transform.position;
-                    float angleOffset = Vector3.Angle(curAttentionDir.normalized, Vector3.right);
+                    // float angleOffset = Vector3.Angle(curAttentionDir.normalized, Vector3.right);   无符号
+                    float angleOffset = Mathf.Atan2(
+
+                        Vector3.Dot(Vector3.up, Vector3.Cross(Vector3.right, curAttentionDir.normalized)),
+
+                        Vector3.Dot(Vector3.right, curAttentionDir.normalized)) * Mathf.Rad2Deg;
+                    
                     rotateAngle = angleOffset;
-                    // Debug.Log(rotateAngle);
                 }
                 if (battle.useRoatateSpeed)
                 {
@@ -538,7 +543,6 @@ namespace Battle
 
             float moveSpeed = hasAttention ? teamBattleSpeed : teamSpeed;
 
-            Debug.Log($"  move Speed: {moveSpeed}");
             var position = teamCenterObj.transform.position;
             centerPos = Vector3.MoveTowards(position, 
                 position + curVelocity, moveSpeed*Time.deltaTime);
