@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using Cinemachine;
 using SuperCLine.ActionEngine;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Battle
@@ -25,42 +28,52 @@ namespace Battle
         private float gapSize;
         private List<int> lineup;
 
+        //Input
         private Vector3 curVelocity;
         private float curRotation = 90;
-
-        private GameObject teamCenterObj;
-        private CinemachineTargetGroup _targetGroup;
-        private GameObject teamHolder;
         private Vector3 lastInputDir;
+        private Quaternion teamRotation;
+
+        //DebugObj
+        private GameObject teamCenterObj;
+        private GameObject teamHolder;
         private GameObject[] memberPosObj;
-        private Mesh[] _meshes;
-        private Mesh centerMesh;
-        private bool dontChangePoses;
-        private Vector3 attentionTarget;
-        private bool hasAttention;
         private GameObject pointer;
         private GameObject pointEffect;
         private GameObject teamCamfollowPoint;
+        private Mesh[] _meshes;
+        private Mesh centerMesh;
+        
+        private CinemachineTargetGroup _targetGroup;
         private CameraTeamLook teamCameraLook;
         private CameraController camController;
+        
+
         private int deadCnt;
         private bool moving;
         private bool inited = false;
-        private float lastRotation;
-        private Quaternion teamRotation;
+        public Vector3[] MemberPoses;
+
+        //索敌
+        private Vector3 attentionPos;
+        private bool hasAttention;
+        
+        //dependencies
+        private BattleGamePlay battle;
+        private TeamManager manager;
+        private List<BattleCharacter> characters = new List<BattleCharacter>();
         
         public Quaternion TeamRotation
         {
             get => teamRotation;
             private set
             {
-                lastRotation = teamRotation.eulerAngles.y;
                 teamRotation = value;
                 if (pointer != null)
                 {
                     if (hasAttention)
                     {
-                        pointer.transform.LookAt(attentionTarget);
+                        pointer.transform.LookAt(attentionPos);
                     }
                     else
                     {
@@ -69,13 +82,6 @@ namespace Battle
                 }
             }
         }
-        public Vector3[] MemberPoses;
-        
-        
-        private BattleGamePlay battle;
-        private TeamManager manager;
-        private List<BattleCharacter> characters = new List<BattleCharacter>();
-        
 
         public CinemachineTargetGroup TargetGroup=> _targetGroup;
         public float AttentionRadius=> teamAttentionRadius;
@@ -115,7 +121,6 @@ namespace Battle
         
         public Team(Vector3 teamPos, int teamCnt, bool isMyTeam, int idx, BattleGamePlay battle, TeamManager manager)
         {
-
             this.battle = battle;
             centerPos = teamPos;
             _memberCnt = teamCnt;
@@ -277,10 +282,17 @@ namespace Battle
             {
                 var offset = new Vector3((i % colCount) - midIdx, 0, Mathf.Floor(i / colCount) - midIdx) * (2*gapSize);
                 var teamPos = centerPos + offset;
+                float rotateAngle = TeamRotation.eulerAngles.y - 90;
+                if (hasAttention)
+                {
+                    Vector3 curAttentionDir = attentionPos - teamCenterObj.transform.position;
+                    float angleOffset = Vector3.Angle(curAttentionDir.normalized, Vector3.right);
+                    rotateAngle = angleOffset;
+                    // Debug.Log(rotateAngle);
+                }
                 if (battle.useRoatateSpeed)
                 {
-                    float changeAngle = TeamRotation.eulerAngles.y - 90;
-                    float rad = Mathf.PI / 180 * changeAngle;
+                    float rad = Mathf.PI / 180 * rotateAngle;
                     float rotateX = offset.x * Mathf.Cos(-rad) - offset.z * Mathf.Sin(-rad);
                     float rotateZ = offset.x * Mathf.Sin(-rad) + offset.z * Mathf.Cos(-rad);
                     teamPos = new Vector3(rotateX + centerPos.x, 0, rotateZ + centerPos.z);
@@ -480,9 +492,9 @@ namespace Battle
                 {
                     characters[i].SetAttention(true, enermyPos);
                 }
-
-                attentionTarget = enermyPos;
+                attentionPos = enermyPos;
                 hasAttention = true;
+                
             }
             else
             {
@@ -525,9 +537,11 @@ namespace Battle
             }
 
             float moveSpeed = hasAttention ? teamBattleSpeed : teamSpeed;
+
+            Debug.Log($"  move Speed: {moveSpeed}");
             var position = teamCenterObj.transform.position;
             centerPos = Vector3.MoveTowards(position, 
-                position + curVelocity, moveSpeed);
+                position + curVelocity, moveSpeed*Time.deltaTime);
             
             teamCenterObj.transform.position = centerPos;
         }
