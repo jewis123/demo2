@@ -36,6 +36,8 @@ namespace Battle
         private Mesh[] _meshes;
         private Mesh centerMesh;
         private bool dontChangePoses;
+        private Vector3 attentionTarget;
+        private bool hasAttention;
         private GameObject pointer;
         private GameObject pointEffect;
         private GameObject teamCamfollowPoint;
@@ -55,7 +57,16 @@ namespace Battle
                 lastRotation = teamRotation.eulerAngles.y;
                 teamRotation = value;
                 if (pointer != null)
-                    pointer.transform.rotation = teamRotation;
+                {
+                    if (hasAttention)
+                    {
+                        pointer.transform.LookAt(attentionTarget);
+                    }
+                    else
+                    {
+                        pointer.transform.rotation = teamRotation;
+                    }
+                }
             }
         }
         public Vector3[] MemberPoses;
@@ -463,12 +474,15 @@ namespace Battle
         private void SearchEnermy()
         {
             Vector3 enermyPos = Vector3.zero;
-            if (isMyTeam && manager.SearchEnermy(teamIdx, ref enermyPos))
+            if (isMyTeam && manager.SearchEnermy(ref enermyPos))
             {
                 for (int i = 0; i < characters.Count; i++)
                 {
                     characters[i].SetAttention(true, enermyPos);
                 }
+
+                attentionTarget = enermyPos;
+                hasAttention = true;
             }
             else
             {
@@ -476,6 +490,8 @@ namespace Battle
                 {
                     characters[i].SetAttention(false, Vector3.zero);
                 }
+
+                hasAttention = false;
             }
         }
 
@@ -508,9 +524,10 @@ namespace Battle
                 TeamRotation = Quaternion.Euler(0,curRotation, 0);
             }
 
+            float moveSpeed = hasAttention ? teamBattleSpeed : teamSpeed;
             var position = teamCenterObj.transform.position;
             centerPos = Vector3.MoveTowards(position, 
-                position + curVelocity, Time.deltaTime * teamSpeed);
+                position + curVelocity, moveSpeed);
             
             teamCenterObj.transform.position = centerPos;
         }

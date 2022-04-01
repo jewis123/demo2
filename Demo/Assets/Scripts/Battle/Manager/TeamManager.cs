@@ -138,11 +138,12 @@ namespace Battle
             // }
         }
 
-        public bool SearchEnermy(int teamIdx, ref Vector3 nearestEnermyPos)
+        public bool SearchEnermy(ref Vector3 nearestEnermyPos)
         {
             int nearestTeamIdx = -1;
             float nearestTeamDis = Mathf.Infinity;
             float  newDis;
+            Vector3 pos = Vector3.zero;
             for (int i = 0; i < Teams.Count; i++)
             {
                 var team = Teams.Values.ElementAt(i);
@@ -155,6 +156,7 @@ namespace Battle
                         {
                             nearestTeamDis = newDis;
                             nearestTeamIdx = i;
+                            pos = team.MemberPoses[j];
                         }
                     }
                 }
@@ -162,7 +164,7 @@ namespace Battle
 
             if (nearestTeamIdx != -1)
             {
-                nearestEnermyPos = Teams.Values.ElementAt(nearestTeamIdx).GetTeamCenter();
+                nearestEnermyPos = pos;
             }
             return nearestTeamIdx != -1;
         }
