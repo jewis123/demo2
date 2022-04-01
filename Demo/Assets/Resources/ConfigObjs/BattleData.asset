@@ -14,25 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   myTeamRadius: 5
-  myTeamMoveSpeed: 5
-  myTeamRotateSpeed: 0.908
-  teamPosOffsetRadius: 1
-  startWanderTime: {x: 3, y: 10}
-  teamDistance: 0
+  myTeamMoveSpeed: 3
+  myTeamRotateSpeed: 2
+  teamPosOffsetRadius: 0.5
+  startWanderTime: {x: 1, y: 5}
+  teamDistance: 1.5
   characterData:
   - id: 1
     team: 0
     HP: 1000
     AP: 3
-    speed: 9
-    accelerateSpeed: 4
-    brakeSpeed: 8
+    speed: 5
+    accelerateSpeed: 10
     attackRadius: 4
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1
-    brakeDistance: 1
-    lagtime: 0.5
+    wanderRadius: 0.7
+    brakeDistance: 2
+    slowDownDistance: 0.5
+    slowDownSpeed: 0.2
+    slowDownDeltaSpeed: 1
+    lagtime: 0.3
     moveable: 1
     attribute:
       damage: 200
@@ -68,14 +70,16 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 7
-    accelerateSpeed: 2
-    brakeSpeed: 8
+    speed: 5
+    accelerateSpeed: 10
     attackRadius: 5
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1
-    brakeDistance: 1
+    wanderRadius: 0.7
+    brakeDistance: 2
+    slowDownDistance: 0.5
+    slowDownSpeed: 0.2
+    slowDownDeltaSpeed: 1
     lagtime: 1
     moveable: 1
     attribute:
@@ -112,14 +116,16 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 10
-    accelerateSpeed: 4
-    brakeSpeed: 8
+    speed: 5
+    accelerateSpeed: 10
     attackRadius: 300
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1
-    brakeDistance: 1
+    wanderRadius: 0.7
+    brakeDistance: 2
+    slowDownDistance: 0.5
+    slowDownSpeed: 0.2
+    slowDownDeltaSpeed: 1
     lagtime: 0.5
     moveable: 0
     attribute:
@@ -156,15 +162,17 @@ MonoBehaviour:
     team: 0
     HP: 1000
     AP: 3
-    speed: 12
-    accelerateSpeed: 7
-    brakeSpeed: 8
+    speed: 5
+    accelerateSpeed: 10
     attackRadius: 50
     searchRadius: 10
     chaseRadius: 10
-    wanderRadius: 1
-    brakeDistance: 1
-    lagtime: 0
+    wanderRadius: 0.7
+    brakeDistance: 2
+    slowDownDistance: 0.5
+    slowDownSpeed: 0.2
+    slowDownDeltaSpeed: 1
+    lagtime: 0.6
     moveable: 0
     attribute:
       damage: 200
@@ -205,12 +213,14 @@ MonoBehaviour:
       AP: 1
       speed: 5
       accelerateSpeed: 3.02
-      brakeSpeed: 0
       attackRadius: 4
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
       brakeDistance: 0
+      slowDownDistance: 0
+      slowDownSpeed: 0
+      slowDownDeltaSpeed: 0
       lagtime: 0
       moveable: 1
       attribute:
@@ -246,12 +256,14 @@ MonoBehaviour:
       AP: 1
       speed: 5
       accelerateSpeed: 3.02
-      brakeSpeed: 0
       attackRadius: 4
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
       brakeDistance: 0
+      slowDownDistance: 0
+      slowDownSpeed: 0
+      slowDownDeltaSpeed: 0
       lagtime: 0
       moveable: 1
       attribute:
@@ -287,12 +299,14 @@ MonoBehaviour:
       AP: 1
       speed: 5
       accelerateSpeed: 3.02
-      brakeSpeed: 0
       attackRadius: 4
       searchRadius: 0
       chaseRadius: 10
       wanderRadius: 0
       brakeDistance: 0
+      slowDownDistance: 0
+      slowDownSpeed: 0
+      slowDownDeltaSpeed: 0
       lagtime: 0
       moveable: 1
       attribute:
