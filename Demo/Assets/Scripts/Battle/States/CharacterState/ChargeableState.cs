@@ -61,7 +61,7 @@ namespace Battle.States
 
             if (character.data.team == 0)
             {
-                if (character.AttackTriggered)
+                if (character.IsAttackTriggered)
                 {
                     fsm.ChangeState<SkillState>();
                 }

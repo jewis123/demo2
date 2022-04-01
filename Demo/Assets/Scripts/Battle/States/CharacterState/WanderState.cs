@@ -15,7 +15,7 @@ namespace Battle.States
 			
 			RefeshTime();
 			GetWanderPos();
-			fsm.target.animator.CrossFade("walking",0.2f,0);
+			fsm.target.animator.CrossFade("walking",0,0);
 		}
 
 		public override void ExitState()
@@ -28,7 +28,7 @@ namespace Battle.States
 			base.UpdateState();
 			if (fsm.target.agent.remainingDistance  <= fsm.target.agent.stoppingDistance)
 			{
-				fsm.target.animator.CrossFade("idle",0.2f,0);
+				fsm.target.animator.CrossFade("idle",0,0);
 			}
 			
 			enterTm += Time.deltaTime;
@@ -56,7 +56,7 @@ namespace Battle.States
 	        float z = Random.Range(-fsm.target.data.wanderRadius*100, fsm.target.data.wanderRadius*100)/100;
 
 	        Vector3 tar = fsm.target.StandPos + new Vector3(x, fsm.target.transform.position.y, z);
-	        fsm.target.animator.CrossFade("walking",0.2f,0);
+	        fsm.target.animator.CrossFade("walking",0,0);
 	        fsm.target.SetDestination(tar);
         }
 	}

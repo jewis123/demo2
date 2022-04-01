@@ -9,9 +9,9 @@ namespace Battle.Config
         public float myTeamRadius;
         public float myTeamMoveSpeed;
         public float myTeamRotateSpeed;
-        [Range(0, 5)]
-        public float teamPosOffsetRadius;
-
+        public float teamAttentionRadius;
+        public float teamBattleSpeed;
+        public float teamWanderRadius;
         [Tooltip("x-y之间取一个随机数时间，开始游走")]
         public Vector2 startWanderTime;
         

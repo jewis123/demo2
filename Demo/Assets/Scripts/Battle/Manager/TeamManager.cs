@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Battle.Config;
 using Cinemachine;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Battle
     {
         public int curTeamCnt;
         public BattleGamePlay battle;
-        public Dictionary<int, Team> EnermyTeams = new Dictionary<int, Team>();
+        public Dictionary<int, Team> Teams = new Dictionary<int, Team>();
 
         private Team myTeam;
 
@@ -23,18 +24,17 @@ namespace Battle
         
         public Team CreateTeam(Vector3 teamPos, int cnt, bool isMyTeam)
         {
-            curTeamCnt++;
-            Team newTeam = new Team(teamPos,cnt, isMyTeam, curTeamCnt, battle);
+            Team newTeam = new Team(teamPos,cnt, isMyTeam, curTeamCnt, battle, this);
 
             if (!isMyTeam)
             {
-                EnermyTeams.Add(curTeamCnt, newTeam);
+                Teams.Add(curTeamCnt, newTeam);
             }
             else
             {
                 myTeam = newTeam;
             }
-            
+            curTeamCnt++;
             return newTeam;
         }
 
@@ -50,9 +50,9 @@ namespace Battle
 
         public Team GetEnermyTeamByIndex(int index)
         {
-            if (EnermyTeams.ContainsKey(index))
+            if (Teams.ContainsKey(index))
             {
-                return EnermyTeams[index];
+                return Teams[index];
             }
 
             return null;
@@ -65,7 +65,7 @@ namespace Battle
 
         public bool IsEnermyAllDead()
         {
-            foreach (var enermyTeam in EnermyTeams)
+            foreach (var enermyTeam in Teams)
             {
                 if (!enermyTeam.Value.IsAllDead())
                 {
@@ -110,7 +110,7 @@ namespace Battle
         
         public void Update()
         {
-            foreach (var team in EnermyTeams)
+            foreach (var team in Teams)
             {
                 team.Value.Update();
             }
@@ -124,7 +124,7 @@ namespace Battle
         public void OnDestroy()
         {
             myTeam.OnDestroy();
-            foreach (var enermyTeam in EnermyTeams)
+            foreach (var enermyTeam in Teams)
             {
                 enermyTeam.Value.OnDestroy();
             }
@@ -136,6 +136,35 @@ namespace Battle
             // {
             //     myTeam.Characters[i].ChangeToIdle();
             // }
+        }
+
+        public bool SearchEnermy(int teamIdx, ref Vector3 nearestEnermyPos)
+        {
+            int nearestTeamIdx = -1;
+            float nearestTeamDis = Mathf.Infinity;
+            float  newDis;
+            for (int i = 0; i < Teams.Count; i++)
+            {
+                var team = Teams.Values.ElementAt(i);
+                for (int j = 0; j < team.MemberPoses.Length; j++)
+                {
+                    newDis = Vector3.Distance(team.MemberPoses[j], myTeam.GetTeamCenter());
+                    if ( newDis <= myTeam.AttentionRadius)
+                    {
+                        if (newDis < nearestTeamDis)
+                        {
+                            nearestTeamDis = newDis;
+                            nearestTeamIdx = i;
+                        }
+                    }
+                }
+            }
+
+            if (nearestTeamIdx != -1)
+            {
+                nearestEnermyPos = Teams.Values.ElementAt(nearestTeamIdx).GetTeamCenter();
+            }
+            return nearestTeamIdx != -1;
         }
     }
 }

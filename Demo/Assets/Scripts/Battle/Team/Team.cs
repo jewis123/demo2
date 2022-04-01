@@ -15,6 +15,8 @@ namespace Battle
         private float backwardDistance;
         private float offsetRadius;
         private float rotateSpeed;
+        private float teamAttentionRadius;
+        private float teamBattleSpeed;
         private Vector3 centerPos;
         private int _memberCnt;
         private float teamRadius;
@@ -32,10 +34,11 @@ namespace Battle
         private Vector3 lastInputDir;
         private GameObject[] memberPosObj;
         private Mesh[] _meshes;
+        private Mesh centerMesh;
         private bool dontChangePoses;
-        private GameObject Pointer;
-        private GameObject Effect;
-        private GameObject FollowPoint;
+        private GameObject pointer;
+        private GameObject pointEffect;
+        private GameObject teamCamfollowPoint;
         private CameraTeamLook teamCameraLook;
         private CameraController camController;
         private int deadCnt;
@@ -43,7 +46,7 @@ namespace Battle
         private bool inited = false;
         private float lastRotation;
         private Quaternion teamRotation;
-
+        
         public Quaternion TeamRotation
         {
             get => teamRotation;
@@ -51,30 +54,26 @@ namespace Battle
             {
                 lastRotation = teamRotation.eulerAngles.y;
                 teamRotation = value;
-                if (Pointer != null)
-                    Pointer.transform.rotation = teamRotation;
+                if (pointer != null)
+                    pointer.transform.rotation = teamRotation;
             }
         }
+        public Vector3[] MemberPoses;
+        
+        
+        private BattleGamePlay battle;
+        private TeamManager manager;
+        private List<BattleCharacter> characters = new List<BattleCharacter>();
         
 
-        public Vector3[] memberPoses;
-        public BattleGamePlay battle;
-        public List<BattleCharacter> Characters = new List<BattleCharacter>();
-        
+        public CinemachineTargetGroup TargetGroup=> _targetGroup;
+        public float AttentionRadius=> teamAttentionRadius;
 
-        public CinemachineTargetGroup TargetGroup
-        {
-            get => _targetGroup;
-        }
-        public bool IsMyTeam
-        {
-            get => isMyTeam;
-        }
+        public float TeamBattleSpeed => teamBattleSpeed;
+
+        public bool IsMyTeam => isMyTeam;
         public float TeamSpeed => teamSpeed;
-        public bool InputTrigger
-        {
-            get { return curVelocity != Vector3.zero; }
-        }
+        public bool InputTrigger => curVelocity != Vector3.zero; 
         public float BackwardDistance => backwardDistance;
         public int DeadCnt
         {
@@ -103,7 +102,7 @@ namespace Battle
             }
         }
         
-        public Team(Vector3 teamPos, int teamCnt, bool isMyTeam, int idx, BattleGamePlay battle)
+        public Team(Vector3 teamPos, int teamCnt, bool isMyTeam, int idx, BattleGamePlay battle, TeamManager manager)
         {
 
             this.battle = battle;
@@ -111,26 +110,30 @@ namespace Battle
             _memberCnt = teamCnt;
             teamIdx = idx;
             this.isMyTeam = isMyTeam;
+            this.manager = manager;
         }
 
-        public void InitMyTeamProps()
+        private void InitTeamProps()
         {
-            backwardDistance = battle.battleData.teamDistance;
-            offsetRadius = battle.battleData.teamPosOffsetRadius;
+            teamAttentionRadius = battle.battleData.teamAttentionRadius;
             teamRadius = battle.battleData.myTeamRadius;
             teamSpeed = battle.battleData.myTeamMoveSpeed;
             rotateSpeed = battle.battleData.myTeamRotateSpeed;
-            
+        }
+        
+        public void InitMyTeamProps()
+        {
+            backwardDistance = battle.battleData.teamDistance;
+            teamBattleSpeed = battle.battleData.teamBattleSpeed;
+            offsetRadius = battle.battleData.teamWanderRadius;
+            InitTeamProps();
             InitTeamPos(true);
             SetCenterEffectParent(true);
         }
 
         public void InitEnemryTeamProps(float dataRadis, float dataSpeed, float dataRatateSpeed)
         {
-            teamRadius = dataRadis;
-            teamSpeed = dataSpeed;
-            rotateSpeed = dataRatateSpeed;
-            
+            InitTeamProps();
             InitTeamPos(false);
         }
 
@@ -144,7 +147,7 @@ namespace Battle
 
             if (_memberCnt > 0)
             {
-                memberPoses = new Vector3[_memberCnt];
+                MemberPoses = new Vector3[_memberCnt];
                 memberPosObj = new GameObject[_memberCnt];
                 _meshes = new Mesh[_memberCnt];
                 for (int i = 0; i < _memberCnt; i++)
@@ -159,9 +162,9 @@ namespace Battle
             {
                 GameObject prefab;
                 prefab = Resources.Load<GameObject>("Prefabs/ArrayIndicator");
-                Pointer = GameObject.Instantiate(prefab);
+                pointer = GameObject.Instantiate(prefab);
                 prefab = Resources.Load<GameObject>("Prefabs/MissonPoint");
-                Effect = GameObject.Instantiate(prefab);
+                pointEffect = GameObject.Instantiate(prefab);
             }
 
             if (withLineup)
@@ -187,8 +190,8 @@ namespace Battle
             {
                 if (_targetGroup == null)
                 {
-                    FollowPoint = new GameObject("FollowPoint");
-                    _targetGroup = FollowPoint.AddComponent<CinemachineTargetGroup>();
+                    teamCamfollowPoint = new GameObject("FollowPoint");
+                    _targetGroup = teamCamfollowPoint.AddComponent<CinemachineTargetGroup>();
                 }
                 
                 
@@ -242,8 +245,8 @@ namespace Battle
             // }
             for (int i = 0; i < _memberCnt; i++)
             {
-                memberPoses[i] = Quaternion.Euler(0,  perDegree * i ,0) * Vector3.forward * teamRadius  + centerPos;
-                memberPosObj[i].transform.position = memberPoses[i];
+                MemberPoses[i] = Quaternion.Euler(0,  perDegree * i ,0) * Vector3.forward * teamRadius  + centerPos;
+                memberPosObj[i].transform.position = MemberPoses[i];
             }
             // else
             // {
@@ -273,22 +276,22 @@ namespace Battle
                 }
 
                 memberPosObj[i].transform.position = teamPos;
-                memberPoses[i] = teamPos;
+                MemberPoses[i] = teamPos;
             }
         }
 
         public void StandIdxWithoutLineup()
         {
             int idx = 0;
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                if (Characters[i].IsDead)
+                if (characters[i].IsDead)
                 {
                     continue;
                 }
 
                 idx++;
-                Characters[i].StandIndex = idx;
+                characters[i].StandIndex = idx;
             }
         }
 
@@ -327,22 +330,22 @@ namespace Battle
 
             if (setParent)
             {
-                Pointer.transform.SetParent(parent.transform);
+                pointer.transform.SetParent(parent.transform);
             }
-            Pointer.transform.localPosition = Vector3.zero;
-            Pointer.transform.localScale = Vector3.one * 0.2f;
+            pointer.transform.localPosition = Vector3.zero;
+            pointer.transform.localScale = Vector3.one * 0.2f;
 
             if (setParent)
             {
-                Effect.transform.SetParent(parent.transform);
+                pointEffect.transform.SetParent(parent.transform);
             }
-            Effect.transform.localPosition = Vector3.zero;
+            pointEffect.transform.localPosition = Vector3.zero;
         }
 
         public void AddMember(BattleCharacter character)
         {
             character.transform.SetParent(teamHolder.transform);
-            Characters.Add(character);
+            characters.Add(character);
             RefreshFollowTarget();
             if (isMyTeam)
             {
@@ -358,11 +361,11 @@ namespace Battle
             }
             List<CinemachineTargetGroup.Target> list = new List<CinemachineTargetGroup.Target>();
             list.Add(new CinemachineTargetGroup.Target(){target = teamCenterObj.transform, weight = 1f, radius = 0});
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                if (!Characters[i].IsDead)
+                if (!characters[i].IsDead)
                 {
-                    list.Add(new CinemachineTargetGroup.Target(){target = Characters[i].transform, weight = 1f, radius = 0});
+                    list.Add(new CinemachineTargetGroup.Target(){target = characters[i].transform, weight = 1f, radius = 0});
                 }
             }
 
@@ -372,9 +375,9 @@ namespace Battle
         public void OnMove(Vector2 moveInput)
         {
             int idleCnt = 0;
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                if (Characters[i].IsIdle)
+                if (characters[i].IsIdle)
                 {
                     idleCnt++;
                 }
@@ -405,12 +408,17 @@ namespace Battle
             curRotation = newRotation;
             curVelocity = lastInputDir * teamSpeed * Time.deltaTime * moveInput.magnitude;
 
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                Characters[i].OnMove();
+                characters[i].OnMove();
             }
 
             moving = true;
+        }
+
+        public Vector3 GetTeamCenter()
+        {
+            return centerPos;
         }
 
         public void Update()
@@ -419,6 +427,9 @@ namespace Battle
             {
                 return;
             }
+            
+            SearchEnermy();
+
 
             if (battle.drawTeamGizmose)
             {
@@ -446,6 +457,26 @@ namespace Battle
             UpdateTeamPoses();
             
             ActiveMembers();
+
+        }
+
+        private void SearchEnermy()
+        {
+            Vector3 enermyPos = Vector3.zero;
+            if (isMyTeam && manager.SearchEnermy(teamIdx, ref enermyPos))
+            {
+                for (int i = 0; i < characters.Count; i++)
+                {
+                    characters[i].SetAttention(true, enermyPos);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < characters.Count; i++)
+                {
+                    characters[i].SetAttention(false, Vector3.zero);
+                }
+            }
         }
 
         private void ReverseTeamPoses()
@@ -502,20 +533,41 @@ namespace Battle
 
         private void DrawDebugGizmos()
         {
+            UDrawTool tool;
+
+           
+
             if (!isMyTeam)
             {
+                if (teamCenterObj != null)
+                {
+                    if (!teamCenterObj.TryGetComponent(out tool))
+                    {
+                        tool = teamCenterObj.AddComponent<UDrawTool>();
+                    }
+                    tool.DrawCircleSolid(teamCenterObj.transform, teamCenterObj.transform.position, 0.3f, Color.magenta, ref centerMesh);
+                }
                 return;
             }
             
-            UDrawTool tool;
             for (int i = 0; i < memberPosObj.Length; i++)
             {
                 if (!memberPosObj[i].TryGetComponent(out tool))
                 {
                     tool = memberPosObj[i].AddComponent<UDrawTool>();
                 }
-                tool?.DrawCircleSolid(memberPosObj[i].transform, memberPoses[i], 0.3f, Color.magenta, ref _meshes[i]);
+                
+                tool?.DrawCircleSolid(memberPosObj[i].transform, MemberPoses[i], 0.3f, Color.magenta, ref _meshes[i]);
                 tool.DrawCircle(memberPosObj[i].transform, memberPosObj[i].transform.position, offsetRadius, Color.magenta);
+            }
+
+            if (teamCenterObj != null)
+            {
+                if (!teamCenterObj.TryGetComponent(out tool))
+                {
+                    tool = teamCenterObj.AddComponent<UDrawTool>();
+                }
+                tool.DrawCircle(teamCenterObj.transform, teamCenterObj.transform.position, teamAttentionRadius, Color.cyan);
             }
         }
 
@@ -523,10 +575,10 @@ namespace Battle
         {
             if (isMyTeam)
             {
-                for (int i = 0; i < memberPoses.Length; i++)
+                for (int i = 0; i < MemberPoses.Length; i++)
                 {
                     Vector3 truePos = memberPosObj[i].transform.position;
-                    memberPoses[i] = truePos + RadiusOffset(i);;
+                    MemberPoses[i] = truePos + RadiusOffset(i);;
                 }
             }
         }
@@ -551,17 +603,17 @@ namespace Battle
             {
                 return;
             }
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                Characters[i].ForceStop();
+                characters[i].ForceStop();
             }
         }
 
         private void ActiveMembers()
         {
-            for (int i = 0; i < Characters.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                Characters[i].ForceStoped = false;
+                characters[i].ForceStoped = false;
             }
         }
 

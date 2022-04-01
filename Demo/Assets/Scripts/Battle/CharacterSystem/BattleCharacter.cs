@@ -1,10 +1,13 @@
-﻿using Battle.States;
+﻿using System.Numerics;
+using Battle.States;
 using Battle.States.SubSkillState;
 using SuperCLine.ActionEngine;
 using UI.HUD;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Battle
 {
@@ -18,23 +21,25 @@ namespace Battle
         [HideInInspector] public bool bHitBack;
         [HideInInspector] public HudBase hud;
         [HideInInspector] public NavMeshAgent agent;
-        [HideInInspector] public bool inited;
+        [HideInInspector] public bool isInited;
         [HideInInspector] public Vector2 WanderTime;
         public Team team;
         public ActionQueue battleActionQueue;
         public Unit Actor;
+        public bool IsAttention;
+        public Vector3 AttentionPos;
 
         
         private Cinemachine.CinemachineImpulseSource MyInpulse;
         private CharacterDebugGizmos debugGizmos;
         private bool isDead;
         
-        public bool AttackTriggered { get; set; }
+        public bool IsAttackTriggered { get; set; }
         public bool ForceStoped { get; set; }
         public bool IsIdle{ get; set; }
         public Vector3 StandPos
         {
-            get => team.memberPoses[StandIndex];
+            get => team.MemberPoses[StandIndex];
         }
 
         private int standIndex;
@@ -163,7 +168,7 @@ namespace Battle
             }
 
 
-            AttackTriggered = false;
+            IsAttackTriggered = false;
 
             BattleCharacter character = attacker.GetComponent<BattleCharacter>();
             float damageValue = CalDamage(character);
@@ -242,7 +247,7 @@ namespace Battle
         
         private void Update()
         {
-            if (!inited)
+            if (!isInited)
             {
                 return;
             }
@@ -273,6 +278,13 @@ namespace Battle
             {
                 agent.SetDestination(dest);
             }
+        }
+
+        public void SetAttention(bool isAttention , Vector3 pos)
+        {
+            IsAttention = isAttention;
+            AttentionPos = pos;
+            agent.updateRotation = !isAttention;
         }
     }
 }

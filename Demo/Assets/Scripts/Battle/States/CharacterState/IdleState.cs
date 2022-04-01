@@ -14,15 +14,19 @@ namespace Battle.States
 
             enterTm = Time.time;
             fsm.target.IsIdle = true;
-            Random.InitState((int) (fsm.target.data.id * Time.time));
-            rangeTime = enterTm + Random.Range(fsm.target.WanderTime.x * 100,fsm.target.WanderTime.y * 100)/100;
-            
+            GetRangeTime();
             fsm.target.animator.CrossFade("idle",0.2f,0);
             fsm.target.hud.SetHUDVisible(true);
             fsm.target.SetDestination(fsm.target.StandPos);
             fsm.target.agent.speed = 0;
             fsm.target.transform.rotation = fsm.target.team.TeamRotation;
             
+        }
+
+        private void GetRangeTime()
+        {
+            Random.InitState((int) (fsm.target.data.id * Time.time));
+            rangeTime = enterTm + Random.Range(fsm.target.WanderTime.x * 100,fsm.target.WanderTime.y * 100)/100;
         }
 
         public override void ExitState()
@@ -38,6 +42,17 @@ namespace Battle.States
             {
                 fsm.target.SetDestination(fsm.target.StandPos);
             }
+
+            if (fsm.target.IsAttention)
+            {
+                fsm.target.animator.CrossFade("defence",0.2f,0);
+                fsm.target.transform.LookAt(fsm.target.AttentionPos);
+            }
+            else
+            {
+                fsm.target.animator.CrossFade("idle",0.2f,0);
+            }
+            
             bool onDest = fsm.target.agent.destination == fsm.target.StandPos;
             bool inDist = fsm.target.agent.remainingDistance < fsm.target.agent.stoppingDistance;
             bool hasSpeed = fsm.target.agent.speed > 0;
@@ -54,7 +69,14 @@ namespace Battle.States
             {
                 if (rangeTime < enterTm)
                 {
-                    fsm.ChangeState<WanderState>();
+                    if (!fsm.target.IsAttention)
+                    {
+                        fsm.ChangeState<WanderState>();
+                    }
+                    else
+                    {
+                        GetRangeTime();
+                    }
                 }
             }
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Battle.States
 {
-    public class FollowState : ChargeableState
+    public class FollowState : ChargeableState,IAttentionable
     {
         private static readonly int SpeedHash = Animator.StringToHash("speed");
         private static readonly int NavSpeedHash = Animator.StringToHash("navSpeed");
@@ -48,8 +48,14 @@ namespace Battle.States
                 StopNav();
                 return;
             }
-            
+
             CheckOvershooting();
+
+            if (fsm.target.IsAttention)
+            {
+                fsm.target.transform.LookAt(fsm.target.AttentionPos);
+            }
+
             
             if (fsm.target.team.IsMyTeam)
             {
@@ -106,20 +112,28 @@ namespace Battle.States
             animator.SetFloat(NavSpeedHash,percent);
         }
 
-        private void CheckOvershooting()
+        private bool isOverShooting()
         {
             Vector3 destDir = (fsm.target.agent.destination - fsm.target.transform.position).normalized;
             Vector3 forword = fsm.target.agent.velocity.normalized;
             
             float angle = Vector3.Angle(forword, destDir);
-
-            if (angle > 90)
+            return angle > 90;
+        }
+        
+        private void CheckOvershooting()
+        {
+            Vector3 destDir = (fsm.target.agent.destination - fsm.target.transform.position).normalized;
+            if (isOverShooting())
             {
                 fsm.target.agent.updateRotation = false;
                 fsm.target.transform.forward = destDir;
                 fsm.target.agent.velocity = destDir.normalized;
                 fsm.target.agent.ResetPath();
-                fsm.target.agent.updateRotation = true;
+                if (!fsm.target.IsAttention)
+                {
+                    fsm.target.agent.updateRotation = true;
+                }
             }
         }
 
@@ -165,8 +179,9 @@ namespace Battle.States
             {
                 if (brakeSpeed == 0)
                 {
-                    brakeSpeed = fsm.target.agent.speed;
+                    brakeSpeed = GetBrakeSpeed();
                 }
+                
                 float ratio = distance / fsm.target.data.brakeDistance;
                 float newSpeed = ratio * brakeSpeed;
 
@@ -181,7 +196,7 @@ namespace Battle.States
 
                         if (slowDownSpeed == 0)
                         {
-                            slowDownSpeed = fsm.target.agent.speed;
+                            slowDownSpeed = GetSlowDownSpeed();
                         }
 
                         float percent = fsm.target.data.slowDownDeltaSpeed * (Time.time - slowDownTime);
@@ -190,8 +205,8 @@ namespace Battle.States
 
                     fsm.target.agent.speed = newSpeed;
                 
-                    fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
-                        * fsm.target.agent.speed) ;
+                    // fsm.target.agent.SetDestination(fsm.target.transform.position + fsm.target.transform.forward
+                        // * fsm.target.agent.speed) ;
                 }else
                 {
                     fsm.target.SetDestination(fsm.target.StandPos);
@@ -207,6 +222,38 @@ namespace Battle.States
             // }
             
             CheckDistanceStop();
+        }
+
+        private float GetBrakeSpeed()
+        {
+            float brakeSpeed;
+            if (fsm.target.agent.speed == 0 && fsm.target.agent.remainingDistance > fsm.target.agent.stoppingDistance)
+            {
+                brakeSpeed = fsm.target.data.slowDownSpeed;
+                fsm.target.SetDestination(fsm.target.StandPos);
+                fsm.target.agent.speed = brakeSpeed;
+            }
+            else
+            {
+                brakeSpeed = fsm.target.agent.speed;
+            }
+            return brakeSpeed;
+        }
+
+        private float GetSlowDownSpeed()
+        {
+            float slowdownSpeed;
+            if (fsm.target.agent.speed == 0 && fsm.target.agent.remainingDistance > fsm.target.agent.stoppingDistance)
+            {
+                slowdownSpeed = fsm.target.data.slowDownSpeed;
+                fsm.target.SetDestination(fsm.target.StandPos);
+                fsm.target.agent.speed = slowdownSpeed;
+            }
+            else
+            {
+                slowdownSpeed = fsm.target.agent.speed;
+            }
+            return slowdownSpeed;
         }
         
         /// <summary>
@@ -250,7 +297,7 @@ namespace Battle.States
 
             bool continueSpeedUp = GetStandPosDistance() > fsm.target.team.BackwardDistance;
             bool lessMaxSpeed = fsm.target.agent.speed < fsm.target.data.speed;
-            bool lessTeamSpeed = fsm.target.agent.speed < fsm.target.team.TeamSpeed;
+            bool lessTeamSpeed = fsm.target.agent.speed < GetTeamSpeed();
 
             if (continueSpeedUp)
             {
@@ -264,7 +311,7 @@ namespace Battle.States
                 if (lessTeamSpeed)
                     fsm.target.agent.speed += fsm.target.data.accelerateSpeed * Time.deltaTime;
                 else
-                    fsm.target.agent.speed = fsm.target.team.TeamSpeed;
+                    fsm.target.agent.speed = GetTeamSpeed();
             }
 
             CheckDistanceStop();
@@ -275,9 +322,14 @@ namespace Battle.States
             Vector2 StandPosV2 = new Vector2(fsm.target.StandPos.x, fsm.target.StandPos.z);
             Vector2 NowPosV2 = new Vector2(fsm.target.transform.position.x, fsm.target.transform.position.z);
             float distance = Vector2.Distance(NowPosV2,StandPosV2);
-            if (distance <= fsm.target.agent.stoppingDistance)
+            if (distance <= fsm.target.agent.stoppingDistance || fsm.target.agent.speed == 0 )
             {
                 StopNav();
+            }
+
+            if (fsm.target.agent.speed != 0 && fsm.target.agent.velocity == Vector3.zero)
+            {
+                fsm.target.SetDestination(fsm.target.StandPos);
             }
         }
 
@@ -288,5 +340,17 @@ namespace Battle.States
             float distance = Vector2.Distance(new Vector2(nowPos.x, nowPos.z), new Vector2(tarPos.x, tarPos.z));
             return distance;
         }
+
+
+        public float GetTeamSpeed()
+        {
+            if (fsm.target.IsAttention)
+            {
+                return fsm.target.team.TeamBattleSpeed;
+            }
+
+            return fsm.target.team.TeamSpeed;
+        }
+
     }
 }

@@ -69,7 +69,7 @@ namespace Battle.States
             {
                 if (fsm.target.data.team == 0)
                 {
-                    fsm.target.AttackTriggered = false;
+                    fsm.target.IsAttackTriggered = false;
                     fsm.ChangeState<IdleState>();
                     
                     return;
@@ -112,7 +112,7 @@ namespace Battle.States
 
             if (fsm.target.data.team == 0)
             {
-                fsm.target.AttackTriggered = false;
+                fsm.target.IsAttackTriggered = false;
             }
             
             var attacker = fsm.target;

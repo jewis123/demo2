@@ -217,11 +217,11 @@ namespace Battle
 
                 if (team.IsMyTeam)
                 {
-                    ActorAdapter.CreateCharacterUnit(team.memberPoses[teamIdx], ref data, ref character);
+                    ActorAdapter.CreateCharacterUnit(team.MemberPoses[teamIdx], ref data, ref character);
                 }
                 else
                 {
-                    ActorAdapter.CreateMonsterUnit(team.memberPoses[teamIdx], ref data, ref character);
+                    ActorAdapter.CreateMonsterUnit(team.MemberPoses[teamIdx], ref data, ref character);
                 }
                 SetData(character, teamIdx, team, data);
                 team.AddMember(character);
@@ -235,7 +235,7 @@ namespace Battle
             character.battle = this;
             character.battleActionQueue = actionqueue;
             character.StandIndex = teamIdx;
-            character.inited = true;
+            character.isInited = true;
             character.WanderTime = battleData.startWanderTime;
             character.transform.position = character.StandPos;
             
