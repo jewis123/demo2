@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Battle.States
 {
@@ -239,7 +237,7 @@ namespace Battle.States
             }
             return brakeSpeed;
         }
-
+        
         private float GetSlowDownSpeed()
         {
             float slowdownSpeed;
@@ -277,7 +275,7 @@ namespace Battle.States
             CheckDistanceStop();
 
         }
-
+        
         /// <summary>
         /// 启动前等待lagTime,使用单体加速度追赶TeamSpeed, 且最大速度不超过MaxSpeed;
         /// </summary>
@@ -316,7 +314,7 @@ namespace Battle.States
 
             CheckDistanceStop();
         }
-
+        
         private void CheckDistanceStop()
         {
             Vector2 StandPosV2 = new Vector2(fsm.target.StandPos.x, fsm.target.StandPos.z);
@@ -332,7 +330,7 @@ namespace Battle.States
                 fsm.target.SetDestination(fsm.target.StandPos);
             }
         }
-
+        
         public float GetStandPosDistance()
         {
             var nowPos = fsm.target.transform.position;
@@ -340,8 +338,7 @@ namespace Battle.States
             float distance = Vector2.Distance(new Vector2(nowPos.x, nowPos.z), new Vector2(tarPos.x, tarPos.z));
             return distance;
         }
-
-
+        
         public float GetTeamSpeed()
         {
             if (fsm.target.IsAttention)
